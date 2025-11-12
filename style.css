@@ -1,0 +1,210 @@
+/* Adhering to Brand Guide 3.0: Earth & Ink Palette */
+:root {
+    --bg-color: #F8F7F4;       /* Off-White */
+    --text-color: #2E2E2E;    /* Charcoal */
+    --accent-color: #A95C3D;   /* Burnt Sienna */
+    --meta-text-color: #5A7D8C; /* Slate Blue */
+    --border-color: #e0e0e0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Lora', serif; /* The Manuscript font */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 2rem auto 4rem auto;
+    padding: 2rem;
+    display: flex;
+    gap: 4rem;
+}
+
+main { flex: 3; }
+
+aside { 
+    flex: 1; 
+    position: sticky; 
+    top: 4rem; 
+    height: fit-content; 
+}
+
+article { max-width: 720px; }
+
+h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+article h2, article h3 {
+    font-family: 'Inter', sans-serif; /* Interface font for section headers */
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+article h3 {
+    font-size: 1.2rem;
+    border-bottom: none;
+    margin-top: 2rem;
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif; /* The Interface font */
+    font-size: 1rem;
+    color: var(--meta-text-color);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.intro-summary {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--meta-text-color);
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+p, li { 
+    font-size: 1.1rem; 
+    margin-bottom: 1.5rem; 
+}
+
+strong { 
+    font-weight: 700; 
+    color: var(--text-color); 
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-color);
+    transition: all 0.2s ease;
+}
+
+a:hover { 
+    background-color: rgba(169, 92, 61, 0.1); 
+    border-bottom-color: transparent; 
+}
+
+sup { line-height: 0; }
+
+sup a { 
+    font-family: 'Inter', sans-serif; 
+    font-size: 0.8em; 
+    font-weight: 600; 
+    vertical-align: super; 
+    border-bottom: none; 
+}
+
+.footnotes { 
+    margin-top: 4rem; 
+    padding-top: 2rem; 
+    border-top: 2px solid var(--border-color); 
+}
+
+.footnotes ol { 
+    padding-left: 20px; 
+    font-size: 0.9rem; 
+    color: #555; 
+}
+
+.footnotes li { margin-bottom: 1rem; }
+
+.footnotes li p { margin-bottom: 0; }
+
+.footnote-back-link { 
+    font-family: 'Inter', sans-serif; 
+    margin-left: 0.5rem; 
+    text-decoration: none; 
+    border-bottom: none; 
+}
+
+.metadata-box {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    font-family: 'Inter', sans-serif; /* The Interface font */
+}
+
+.metadata-box h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid var(--text-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.metadata-item.back-link {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.metadata-item.back-link a {
+    font-weight: 600;
+    border-bottom: none;
+}
+
+.metadata-item { margin-bottom: 1.5rem; }
+
+.metadata-item dt { 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    color: var(--meta-text-color); 
+    margin-bottom: 0.25rem; 
+}
+
+.metadata-item dd { 
+    font-size: 0.95rem; 
+    margin-left: 0; 
+    font-weight: 400; 
+}
+
+code {
+    font-family: 'Inter', sans-serif;
+    background-color: rgba(0,0,0,0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.logo-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .container { 
+        flex-direction: column-reverse; 
+        gap: 2rem; 
+        margin-top: 2rem; 
+    }
+    aside { 
+        position: static; 
+        top: auto; 
+    }
+}
