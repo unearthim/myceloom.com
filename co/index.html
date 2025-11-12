@@ -7,9 +7,9 @@
     <!-- SEO Meta Tags -->
     <title>Myceloom: The Coalition Substrate | myceloom.co</title>
     <meta name="title" content="Myceloom: The Coalition Substrate | myceloom.co">
-    <meta name="description" content="A digital archaeological investigation into myceloom.co as a framework for digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.">
+    <meta name="description" content="A digital archaeological investigation into myceloom as a framework for digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.">
     <meta name="keywords" content="Myceloom, Coalition, Co-agency, Collaborative Innovation, Distributed Interdependence, Regenerative Governance, myceloom.co">
-    <meta name="author" content="myceloom.co">
+    <meta name="author" content="unearth.im">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
@@ -18,7 +18,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://myceloom.co">
     <meta property="og:title" content="Myceloom: The Coalition Substrate | myceloom.co">
-    <meta property="og:description" content="A digital archaeological investigation into myceloom.co as a framework for digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.">
+    <meta property="og:description" content="A digital archaeological investigation into myceloom as a framework for digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.">
     <meta property="og:image" content="https://myceloom.co/og-preview.png">
     <meta property="og:site_name" content="myceloom.co">
 
@@ -26,11 +26,11 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://myceloom.co">
     <meta property="twitter:title" content="Myceloom: The Coalition Substrate | myceloom.co">
-    <meta property="twitter:description" content="A digital archaeological investigation into myceloom.co as a framework for digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.">
+    <meta property="twitter:description" content="A digital archaeological investigation into myceloom as a framework for digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.">
     <meta property="twitter:image" content="https://myceloom.co/og-preview.png">
 
     <!-- Canonical & Webmention -->
-    <link rel="canonical" href="https://unearth.im/library/myceloom/co/">
+    <link rel="canonical" href="https://myceloom.co/">
     <link rel="webmention" href="https://webmention.io/unearth.im/webmention" />
 
     <!-- Favicon -->
@@ -43,9 +43,12 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#A95C3D">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal Stylesheet -->
     <style>
         /* Adhering to Brand Guide 3.0: Earth & Ink Palette */
         :root {
@@ -66,20 +69,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .working-paper-notice {
-            background-color: #fffaf0; /* A slightly different off-white for contrast */
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem 2rem;
-            margin: 2rem auto;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 1100px;
-        }
-        .working-paper-notice p { margin: 0; padding: 0.5rem 0; }
-        .working-paper-notice strong { font-weight: 600; }
         .container {
             max-width: 1100px;
             margin: 2rem auto 4rem auto;
@@ -124,7 +113,13 @@
             margin-bottom: 2.5rem;
         }
         p, li { font-size: 1.1rem; margin-bottom: 1.5rem; }
-        strong { font-weight: 700; color: var(--text-color); }
+        
+        /* Use <em> for italics per editorial guidelines */
+        em {
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+
         a {
             color: var(--accent-color);
             text-decoration: none;
@@ -134,11 +129,15 @@
         a:hover { background-color: rgba(169, 92, 61, 0.1); border-bottom-color: transparent; }
         sup { line-height: 0; }
         sup a { font-family: 'Inter', sans-serif; font-size: 0.8em; font-weight: 600; vertical-align: super; border-bottom: none; }
+        
+        /* Footnotes Section */
         .footnotes { margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color); }
-        .footnotes ol { padding-left: 20px; font-size: 0.9rem; color: #555; }
-        .footnotes li { margin-bottom: 1rem; }
-        .footnotes li p { margin-bottom: 0; }
+        .footnotes ol { padding-left: 20px; }
+        .footnotes li { font-size: 0.85rem; margin-bottom: 0.75rem; color: #555; }
+        .footnotes li p { font-size: 0.85rem; margin-bottom: 0; display: inline; }
         .footnote-back-link { font-family: 'Inter', sans-serif; margin-left: 0.5rem; text-decoration: none; border-bottom: none; }
+        
+        /* Metadata Sidebar */
         .metadata-box {
             border: 1px solid var(--border-color);
             padding: 1.5rem;
@@ -155,16 +154,34 @@
             margin-top: 0;
             margin-bottom: 1.5rem;
         }
+        .metadata-item.back-link {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .metadata-item.back-link a {
+            font-weight: 600;
+            border-bottom: none;
+        }
         .metadata-item { margin-bottom: 1.5rem; }
         .metadata-item dt { font-size: 0.8rem; font-weight: 600; color: var(--meta-text-color); margin-bottom: 0.25rem; }
         .metadata-item dd { font-size: 0.95rem; margin-left: 0; font-weight: 400; }
-        code {
+        
+        /* Use <em> for italics in sidebar per editorial guidelines */
+        .metadata-item dd em {
             font-family: 'Inter', sans-serif;
-            background-color: rgba(0,0,0,0.05);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 0.9em;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--accent-color);
+            line-height: 1.6;
+            display: inline-block;
         }
+        
+        .metadata-item dd em.main-domain {
+             color: var(--accent-color);
+             font-weight: 700;
+        }
+
         .logo-footer {
             margin-top: 2rem;
             padding-top: 1rem;
@@ -187,37 +204,32 @@
                     <p class="subtitle">A Digital Archaeological Investigation</p>
                 </header>
 
-                <p class="intro-summary">Distinct from .com’s commerce and .org’s non-profit ethos, the .co domain exists in the borderland of 'company,' 'coalition,' and 'community.' Myceloom.co harnesses this multivalence to create a living substrate for digital coalition-building and collaborative innovation.</p>
-
-                <h2>The Liminal Power of .co</h2>
-                <p>The .co top-level domain is a space defined by its ambiguity and multivalence. Distinct from .com’s entrenched commercial history and .org’s nonprofit ethos, .co exists in the borderland—fluidly associated with company, coalition, community, and the Latin “cum,” meaning <em>with</em>.<sup id="ref1"><a href="#fn1">1</a></sup> This ambiguity, far from a weakness, has made .co the ideal environment for contemporary experiments in co-agency and collaborative innovation. Myceloom.co takes up this charge, leveraging both its etymological richness and its cultural blank-slate status to become a monument to digital coalition-building, weaving code, commerce, and creativity into an adaptive, living substrate.</p>
+                <p class="intro-summary">Where commerce and non-profit structures define clear boundaries, the concept of the 'coalition' exists in a liminal borderland. The <em>myceloom</em> framework harnesses this multivalence to create a living substrate for digital coalition-building, weaving code, commerce, and creativity into an adaptive, shared ground.</p>
 
                 <h2>From Mycelial Networks to Digital Looms</h2>
-                <p>Beneath the surface of every thriving ecosystem is a lattice of interconnections created by the mycelium—a biological infrastructure that demonstrates how decentralized networks can foster mutual support and resiliency.<sup id="ref2"><a href="#fn2">2</a></sup> Myceloom overlays the metaphor of the loom, transforming this fungus-rooted web into a digital textile: a site where relationships, data, and value streams coalesce and propagate. The “co” in myceloom.co stands not just for business but for codevelopers, coauthors, and coowners, positioning the domain as a framework for mutual enhancement and networked identity.<sup id="ref3"><a href="#fn3">3</a></sup></p>
+                <p>Beneath the surface of every thriving ecosystem is a lattice of interconnections created by the mycelium—a biological infrastructure that demonstrates how decentralized networks can foster mutual support and resiliency.<sup id="ref1"><a href="#fn1">1</a></sup> Myceloom overlays the metaphor of the loom, transforming this fungus-rooted web into a digital textile: a site where relationships, data, and value streams coalesce and propagate. The concept of "co-" is central to this framework, standing not just for 'company' but for codevelopers, coauthors, and coowners, positioning <em>myceloom</em> as a framework for mutual enhancement and networked identity.<sup id="ref2"><a href="#fn2">2</a></sup></p>
 
-                <h2>The Architecture: Resilience via Distributed Interdependence</h2>
-                <p>Resilience in network architecture emerges most clearly in systems that, like mycelial mats, can lose a majority of their constituent nodes and yet continue to transport signals and resources with minimal degradation.<sup id="ref4"><a href="#fn4">4</a></sup> Myceloom.co embraces this principle by building its digital environment to thrive under adversity and change. Rather than relying on centralized platforms or rigid hierarchical protocols, the coalition substrate is enacted through distributed intelligence, regenerative commerce, and dynamic governance.</p>
-                <p>The engine for platform health on myceloom.co is not competition, but collaborative interdependence. Users are incentivized not only for participation but for their ability to propagate resilience throughout the network—their activity is valuable insofar as it generates health, redundancy, and opportunity for others.<sup id="ref5"><a href="#fn5">5</a></sup> In this way, myceloom.co embodies the lesson of the biological mycelium: mutualism yields not just short-term gain but long-term antifragility.</p>
+                <h2>The Architecture of Trust</h2>
+                <p>Resilience in any coalition is not derived from rigid, top-down control, but from the adaptive strength of its connections. Like mycelial mats, the most robust communities can withstand fragmentation yet continue to share resources and purpose.<sup id="ref3"><a href="#fn3">3</a></sup> <em>myceloom</em> is a framework for this principle—a substrate built not on competition, but on collaborative interdependence. It envisions a digital environment where the health of the network is the primary metric of success. Value is created not by extraction, but by generative acts that build redundancy, opportunity, and fortitude for all participants.<sup id="ref4"><a href="#fn4">4</a></sup> This is the core lesson of the mycelium, translated from biology to assembly: mutualism is the only true path to antifragility.</p>
 
-                <h2>Collaborative Protocols and Regenerative Governance</h2>
-                <p>Central to the myceloom.co vision is the notion of distributed protocols, reflecting the peer-to-peer resource-sharing found in mycorrhizal exchanges between species.<sup id="ref6"><a href="#fn6">6</a></sup> Here, collaboration is not an abstract value but an operational principle: incentive systems are designed to reward actions that create sustainable, adaptable benefits for the network rather than extraction for the individual.</p>
-                <p>Governance follows ecological intelligence rather than corporate fiat. Decisions emerge via symbiotic consensus protocols, modeled after the adaptive negotiations taking place in living root-fungal webs. A thriving digital substrate, like myceloom.co, moves beyond sustainability toward “thrivability”—governing its growth by prioritizing systems that replenish themselves, organically responding to stresses and opportunities.<sup id="ref7"><a href="#fn7">7</a></sup></p>
+                <h2>A Substrate for Shared Action</h2>
+                <p>A true coalition is defined by its actions. The <em>myceloom</em> framework is built on distributed protocols that reflect the peer-to-peer resource sharing found in mycorrhizal exchanges.<sup id="ref5"><a href="#fn5">5</a></sup> Collaboration is not an abstract value but an operational principle. Governance itself follows this ecological intelligence, emerging from the ground up rather than being dictated from the top down. Decisions are modeled as adaptive negotiations, allowing the coalition to move beyond mere sustainability toward a state of true vitality—a system that replenishes itself by prioritizing the health of its connections.<sup id="ref6"><a href="#fn6">6</a></sup></p>
 
-                <h2>The Future Substrate</h2>
-                <p>In the age of Web4 and distributed intelligence, digital platforms must evolve from passive media into co-creative environments. Myceloom.co rises as a living monument to this future, offering builders, strategists, and participants a context to cultivate connections, grow coalitions, and create resilient infrastructures that transcend old paradigms of competition and scarcity.<sup id="ref8"><a href="#fn8">8</a></sup> Here, “co” ceases to be a mere domain suffix and becomes the signifier for our digital lineage—a prefix for every act of collaboration, codevelopment, and co-agency.</p>
-                <p>The future imagined by myceloom.co is a world where digital resilience, adaptive architectures, and generative intelligence are not distant goals, but living realities woven from the mycelial lesson that what is good for the network ensures the thriving of every node.</p>
+                <h2>The Weaving of "Co-"</h2>
+                <p>Digital platforms must evolve from passive media into co-creative environments. <em>myceloom</em> is the substrate for this future, a framework offered to builders, strategists, and communities. It provides the ground to cultivate connection, grow coalitions, and forge resilient infrastructures that transcend old paradigms of competition and scarcity.<sup id="ref7"><a href="#fn7">7</a></sup> Here, the concept of "co-" is redeemed from a simple prefix and restored to its true purpose. It becomes the signifier for the most vital human actions: to co-create, to collaborate, to build in coalition. This framework imagines a future where digital resilience and generative intelligence are not distant goals, but living realities, woven from the non-negotiable lesson of the mycelium: what is good for the network is the only guarantee for the thriving of the node.</p>
 
                 <section class="footnotes">
                     <h2>Notes</h2>
                     <ol>
-                        <li id="fn1"><p>GoDaddy Registry, "What does .CO stand for – and why choose it?" 2025, <a href="https://www.godaddy.com/tlds/co" target="_blank" rel="noopener noreferrer">https://www.godaddy.com/tlds/co</a>.<a href="#ref1" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn2"><p>Paul Stamets, “Mycological strategies,” accessed October 5, 2025, <a href="https://paulstamets.com/mycological-strategies" target="_blank" rel="noopener noreferrer">https://paulstamets.com/mycological-strategies</a>.<a href="#ref2" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn3"><p>Monika A. Gorzelak et al., “Inter-plant communication through mycorrhizal networks mediates complex adaptive behaviour in plant communities,” <em>AoB PLANTS</em> 7 (2015), <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4497361/" target="_blank" rel="noopener noreferrer">https://pmc.ncbi.nlm.nih.gov/articles/PMC4497361/</a>.<a href="#ref3" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn4"><p>Mark D. Fricker, et al., “Biological solutions to transport network design,” <em>Proceedings of the Royal Society B</em> 274, no. 1623 (2007): 2307–2315.<a href="#ref4" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn5"><p>Better Place Forests, “How Mycelium and Mycorrhizal Networks Benefit the Forest,” July 2, 2024, <a href="https://www.betterplaceforests.com/blog/mycelium-and-mycorrhizal-in-the-forest" target="_blank" rel="noopener noreferrer">https://www.betterplaceforests.com/blog/mycelium-and-mycorrhizal-in-the-forest</a>.<a href="#ref5" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn6"><p>Fungi Perfecti, “The Mycelium Network Connects Us All,” May 13, 2024, <a href="https://fungi.com/blogs/mycelium-articles/the-mycelium-network-connects-us-all" target="_blank" rel="noopener noreferrer">https://fungi.com/blogs/mycelium-articles/the-mycelium-network-connects-us-all</a>.<a href="#ref6" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn7"><p>Miranda Pyne et al., “Comparing Two Classes of Biological Distribution Systems Using Network Science,” <em>PLOS Computational Biology</em> 14, no. 9 (2018): e1006428.<a href="#ref7" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn8"><p>Harvard Business School, “Toward a Better Understanding of Open Ecosystems: Implications for Innovation and Competitive Dynamics,” March 7, 2025, <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64989" target="_blank" rel="noopener noreferrer">https://www.hbs.edu/faculty/Pages/item.aspx?num=64989</a>.<a href="#ref8" class="footnote-back-link">↩</a></p></li>
+                        <li id="fn1"><p>GoDaddy Registry, "What does .CO stand for – and why choose it?" 2025, <a href="https://www.godaddy.com/tlds/co" target="_blank" rel="noopener noreferrer">https://www.godaddy.com/tlds/co</a>.</p><a href="#ref1" class="footnote-back-link">↩</a></li>
+                        <li id="fn2"><p>Monika A. Gorzelak et al., “Inter-plant communication through mycorrhizal networks mediates complex adaptive behaviour in plant communities,” <em>AoB PLANTS</em> 7 (2015), <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4497361/" target="_blank" rel="noopener noreferrer">https://pmc.ncbi.nlm.nih.gov/articles/PMC4497361/</a>.</p><a href="#ref2" class="footnote-back-link">↩</a></li>
+                        <li id="fn3"><p>Mark D. Fricker, et al., “Biological solutions to transport network design,” <em>Proceedings of the Royal Society B</em> 274, no. 1623 (2007): 2307–2315.</p><a href="#ref3" class="footnote-back-link">↩</a></li>
+                        <li id="fn4"><p>Better Place Forests, “How Mycelium and Mycorrhizal Networks Benefit the Forest,” July 2, 2024, <a href="https://www.betterplaceforests.com/blog/mycelium-and-mycorrhizal-in-the-forest" target="_blank" rel="noopener noreferrer">https://www.betterplaceforests.com/blog/mycelium-and-mycorrhizal-in-the-forest</a>.</p><a href="#ref4" class="footnote-back-link">↩</a></li>
+                        <li id="fn5"><p>Fungi Perfecti, “The Mycelium Network Connects Us All,” May 13, 2024, <a href="https://fungi.com/blogs/mycelium-articles/the-mycelium-network-connects-us-all" target="_blank" rel="noopener noreferrer">https://fungi.com/blogs/mycelium-articles/the-mycelium-network-connects-us-all</a>.</p><a href="#ref5" class="footnote-back-link">↩</a></li>
+                        <li id="fn6"><p>Miranda Pyne et al., “Comparing Two Classes of Biological Distribution Systems Using Network Science,” <em>PLOS Computational Biology</em> 14, no. 9 (2018): e1006428.</p><a href="#ref6" class="footnote-back-link">↩</a></li>
+                        <li id="fn7"><p>Harvard Business School, “Toward a Better Understanding of Open Ecosystems: Implications for Innovation and Competitive Dynamics,” March 7, 2025, <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=64989" target="_blank" rel="noopener noreferrer">https://www.hbs.edu/faculty/Pages/item.aspx?num=64989</a>.</p><a href="#ref7" class="footnote-back-link">↩</a></li>
+                        
+                        <!-- Note: Removed the Stamets citation as it was redundant with the .org and .com papers and not strictly necessary for this revised, more focused argument -->
                     </ol>
                 </section>
             </article>
@@ -238,18 +250,19 @@
                 </div>
                 <div class="metadata-item">
                     <dt>Authors</dt>
-                    <dd>Josie Jefferson, Felix Velasco, and Sentientified Noospherians</dd>
+                    <dd>unearth.im</dd> <!-- Edited per guidelines -->
                 </div>
                 <div class="metadata-item">
                     <dt>Core Concepts</dt>
+                    <!-- Converted <code> to <em> per guidelines -->
                     <dd>
-                        <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer"><code>myceloom.com</code></a><br>
-                        <a href="https://myceloom.org" target="_blank" rel="noopener noreferrer"><code>myceloom.org</code></a><br>
-                        <a href="https://myceloom.net" target="_blank" rel="noopener noreferrer"><code>myceloom.net</code></a><br>
-                        <a href="https://myceloom.ai" target="_blank" rel="noopener noreferrer"><code>myceloom.ai</code></a><br>
-                        <a href="https://myceloom.io" target="_blank" rel="noopener noreferrer"><code>myceloom.io</code></a><br>
-                        <a href="https://myceloom.im" target="_blank" rel="noopener noreferrer"><code>myceloom.im</code></a><br>
-                        <code><span style="color: var(--accent-color); font-weight: 700;">myceloom.co</span></code>
+                        <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer"><em>myceloom.com</em></a><br>
+                        <a href="https://myceloom.org" target="_blank" rel="noopener noreferrer"><em>myceloom.org</em></a><br>
+                        <a href="https://myceloom.net" target="_blank" rel="noopener noreferrer"><em>myceloom.net</em></a><br>
+                        <a href="https://myceloom.ai" target="_blank" rel="noopener noreferrer"><em>myceloom.ai</em></a><br>
+                        <a href="https://myceloom.io" target="_blank" rel="noopener noreferrer"><em>myceloom.io</em></a><br>
+                        <a href="https://myceloom.im" target="_blank" rel="noopener noreferrer"><em>myceloom.im</em></a><br>
+                        <em class="main-domain">myceloom.co</em>
                     </dd>
                 </div>
                 <div class="metadata-item">

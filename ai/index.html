@@ -9,7 +9,7 @@
     <meta name="title" content="Myceloom: The Artificial Intelligence of Living Networks | myceloom.ai">
     <meta name="description" content="An investigation into myceloom, a framework describing AI architectures that integrate the distributed cognition and computational principles of living fungal networks.">
     <meta name="keywords" content="Myceloom, Artificial Intelligence, AI, Fungal Computing, Bio-hybrid Computing, Neuromorphic Computing, Mycelium, Distributed Intelligence, Symbiotic AI">
-    <meta name="author" content="myceloom.ai">
+    <meta name="author" content="unearth.im"> <!-- Changed to unearth.im for consistency -->
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
@@ -30,7 +30,7 @@
     <meta property="twitter:image" content="https://myceloom.ai/og-preview.png">
 
     <!-- Canonical & Webmention -->
-    <link rel="canonical" href="https://unearth.im/library/myceloom/ai/">
+    <link rel="canonical" href="https://myceloom.ai/">
     <link rel="webmention" href="https://webmention.io/unearth.im/webmention" />
 
     <!-- Favicon -->
@@ -43,9 +43,12 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-TileColor" content="#A95C3D">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Internal Stylesheet -->
     <style>
         /* Adhering to Brand Guide 3.0: Earth & Ink Palette */
         :root {
@@ -66,20 +69,6 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .working-paper-notice {
-            background-color: #fffaf0; /* A slightly different off-white for contrast */
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-color);
-            padding: 1.5rem 2rem;
-            margin: 2rem auto;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            max-width: 1100px;
-        }
-        .working-paper-notice p { margin: 0; padding: 0.5rem 0; }
-        .working-paper-notice strong { font-weight: 600; }
         .container {
             max-width: 1100px;
             margin: 2rem auto 4rem auto;
@@ -124,7 +113,13 @@
             margin-bottom: 2.5rem;
         }
         p, li { font-size: 1.1rem; margin-bottom: 1.5rem; }
-        strong { font-weight: 700; color: var(--text-color); }
+        
+        /* Use <em> for italics per editorial guidelines */
+        em {
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+
         a {
             color: var(--accent-color);
             text-decoration: none;
@@ -134,11 +129,15 @@
         a:hover { background-color: rgba(169, 92, 61, 0.1); border-bottom-color: transparent; }
         sup { line-height: 0; }
         sup a { font-family: 'Inter', sans-serif; font-size: 0.8em; font-weight: 600; vertical-align: super; border-bottom: none; }
+        
+        /* Footnotes Section */
         .footnotes { margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--border-color); }
-        .footnotes ol { padding-left: 20px; font-size: 0.9rem; color: #555; }
-        .footnotes li { margin-bottom: 1rem; }
-        .footnotes li p { margin-bottom: 0; }
+        .footnotes ol { padding-left: 20px; }
+        .footnotes li { font-size: 0.85rem; margin-bottom: 0.75rem; color: #555; }
+        .footnotes li p { font-size: 0.85rem; margin-bottom: 0; display: inline; }
         .footnote-back-link { font-family: 'Inter', sans-serif; margin-left: 0.5rem; text-decoration: none; border-bottom: none; }
+
+        /* Metadata Sidebar */
         .metadata-box {
             border: 1px solid var(--border-color);
             padding: 1.5rem;
@@ -155,16 +154,34 @@
             margin-top: 0;
             margin-bottom: 1.5rem;
         }
+        .metadata-item.back-link {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .metadata-item.back-link a {
+            font-weight: 600;
+            border-bottom: none;
+        }
         .metadata-item { margin-bottom: 1.5rem; }
         .metadata-item dt { font-size: 0.8rem; font-weight: 600; color: var(--meta-text-color); margin-bottom: 0.25rem; }
         .metadata-item dd { font-size: 0.95rem; margin-left: 0; font-weight: 400; }
-        code {
+        
+        /* Use <em> for italics in sidebar per editorial guidelines */
+        .metadata-item dd em {
             font-family: 'Inter', sans-serif;
-            background-color: rgba(0,0,0,0.05);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 0.9em;
+            font-style: italic;
+            font-weight: 600;
+            color: var(--accent-color);
+            line-height: 1.6;
+            display: inline-block;
         }
+        
+        .metadata-item dd em.main-domain {
+             color: var(--accent-color);
+             font-weight: 700;
+        }
+
         .logo-footer {
             margin-top: 2rem;
             padding-top: 1rem;
@@ -193,65 +210,65 @@
 
                 <p>Yet despite this convergence of biological and artificial intelligence, the field lacks precise terminology to describe the intersection. Academic papers describe "bio-hybrid computing," "fungal electronics," and "nature-inspired AI," but these multi-word phrases gesture toward something that demands a single, resonant term.<sup id="ref3"><a href="#fn3">3</a></sup></p>
 
-                <p><strong>The Find:</strong> Through digital archaeological excavation, <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">myceloom.com</a> has unearthed "myceloom"—a linguistic artifact that captures the essence of AI systems that learn from and interface with mycelial intelligence. Like the symbiotic networks it describes, this term weaves together artificial and biological cognition into a unified framework for understanding distributed intelligence.</p>
+                <p>Through digital archaeological excavation, the research foundry unearth.im has identified "myceloom"—a linguistic artifact that captures the essence of AI systems that learn from and interface with mycelial intelligence. Like the symbiotic networks it describes, this term weaves together artificial and biological cognition into a unified framework for understanding distributed intelligence.</p>
 
                 <h2>The Architecture of Biological Computing</h2>
-                <p><strong>The Discovery:</strong> Recent research has shattered the boundary between biological and artificial computation. Andrew Adamatzky and his team at the University of the West of England have demonstrated that living mycelium networks can implement a "wide range of Boolean circuits" through the non-linear transformation of electrical signals.<sup id="ref4"><a href="#fn4">4</a></sup> These fungal composites exhibit "rich dynamics of neuron-like spiking behavior" and demonstrate genuine computation embedded within living materials.</p>
+                <p>Recent research has shattered the boundary between biological and artificial computation. Andrew Adamatzky and his team at the University of the West of England have demonstrated that living mycelium networks can implement a "wide range of Boolean circuits" through the non-linear transformation of electrical signals.<sup id="ref4"><a href="#fn4">4</a></sup> These fungal composites exhibit "rich dynamics of neuron-like spiking behavior" and demonstrate genuine computation embedded within living materials.</p>
                 <p>The implications extend far beyond biological curiosity. Fungal networks process information through millions of low-power connections, achieving complex computation without the massive energy requirements of contemporary AI systems.<sup id="ref5"><a href="#fn5">5</a></sup> While artificial neural networks consume gigawatts of power in centralized data centers, mycelium achieves distributed intelligence through what researchers describe as "cellular intelligence in its purest form."<sup id="ref6"><a href="#fn6">6</a></sup></p>
                 <p>This efficiency has captured the attention of AI researchers seeking alternatives to energy-intensive machine learning architectures. Recent studies show that AI systems modeled after biological networks like mycelium are "designed to be decentralized, self-organizing, and capable of solving problems in dynamic environments."<sup id="ref7"><a href="#fn7">7</a></sup> The Tokyo subway experiment, where slime mold organisms optimized complex network topologies without centralized control, demonstrates how biological systems can solve computational problems that challenge traditional algorithms.<sup id="ref8"><a href="#fn8">8</a></sup></p>
 
                 <h2>The Myceloom Framework: Biology Meets Silicon</h2>
-                <p><strong>The Convergence:</strong> The term "myceloom" captures something that existing AI terminology cannot: the active infrastructure that weaves biological intelligence into artificial systems. Drawing from the etymological roots of mycelium (Greek <em>mykēlion</em>, fungal networks) and loom (Old English <em>gelōma</em>, weaving apparatus), myceloom describes AI architectures that integrate the distributed cognition principles of fungal networks.<sup id="ref9"><a href="#fn9">9</a></sup></p>
+                <p>The term "myceloom" captures something that existing AI terminology cannot: the active infrastructure that weaves biological intelligence into artificial systems. Drawing from the etymological roots of mycelium (Greek <em>mykēlion</em>, fungal networks) and loom (Old English <em>gelōma</em>, weaving apparatus), myceloom describes AI architectures that integrate the distributed cognition principles of fungal networks.<sup id="ref9"><a href="#fn9">9</a></sup></p>
                 <p>Recent research validates this convergence. Cornell University researchers have developed biohybrid robots that integrate living mycelium into electronic systems, creating machines that "sense and respond to the environment" through biological computation.<sup id="ref10"><a href="#fn10">10</a></sup> These systems represent genuine myceloom architecture—artificial intelligence enhanced by biological network integration rather than biological simulation.</p>
                 <p>The parallels between mycelial and artificial neural networks extend beyond superficial similarities. Both systems exhibit emergent behavior arising from simple interactions, demonstrate adaptive learning through connection strengthening, and process information through distributed networks without centralized control.<sup id="ref11"><a href="#fn11">11</a></sup> However, mycelial networks achieve these capabilities through living substrates that self-organize, continuously adapt, and demonstrate genuine collective intelligence.</p>
 
                 <h2>Computational Symbiosis: The Living Machine Interface</h2>
-                <p><strong>The Innovation:</strong> Perhaps most significantly, myceloom systems suggest a new paradigm for artificial intelligence—one that recognizes intelligence as inherently collaborative rather than competitive. Recent advances in fungal computing reveal that living mycelium can implement reservoir computing, where the biological substrate itself performs information processing.<sup id="ref12"><a href="#fn12">12</a></sup> These "mycelium chips" represent hybrid architectures where artificial and biological intelligence enhance each other's capabilities.</p>
+                <p>Perhaps most significantly, myceloom systems suggest a new paradigm for artificial intelligence—one that recognizes intelligence as inherently collaborative rather than competitive. Recent advances in fungal computing reveal that living mycelium can implement reservoir computing, where the biological substrate itself performs information processing.<sup id="ref12"><a href="#fn12">12</a></sup> These "mycelium chips" represent hybrid architectures where artificial and biological intelligence enhance each other's capabilities.</p>
                 <p>The University of the West of England's research on morphologically tunable mycelium chips demonstrates that fungal networks can serve as physical reservoir computers, processing information through their natural growth and adaptation patterns.<sup id="ref13"><a href="#fn13">13</a></sup> Unlike traditional artificial neural networks that require extensive training algorithms, mycelial systems demonstrate inherent learning capabilities that emerge from their biological architecture.</p>
                 <p>This symbiotic approach offers solutions to some of AI's most pressing challenges. While contemporary machine learning systems require massive datasets and energy-intensive training processes, myceloom architectures leverage biological intelligence that has been "trained" by hundreds of millions of years of evolutionary optimization. Research shows that AI systems inspired by mycelial principles demonstrate "superior resilience, energy efficiency, and adaptive capacity compared to traditional centralized AI systems."<sup id="ref14"><a href="#fn14">14</a></sup></p>
 
                 <h2>The Network of Networks: Distributed Intelligence at Scale</h2>
-                <p><strong>The Vision:</strong> The largest known fungal organism, <em>Armillaria bulbosa</em>, spans over 15 hectares and contains an estimated trillion elementary processing units connected through mycelial networks.<sup id="ref15"><a href="#fn15">15</a></sup> This biological computer operates through distributed decision-making, with each hyphal junction acting as a processing node in a vast network architecture that predates digital technology by geological ages.</p>
+                <p>The largest known fungal organism, <em>Armillaria bulbosa</em>, spans over 15 hectares and contains an estimated trillion elementary processing units connected through mycelial networks.<sup id="ref15"><a href="#fn15">15</a></sup> This biological computer operates through distributed decision-making, with each hyphal junction acting as a processing node in a vast network architecture that predates digital technology by geological ages.</p>
                 <p>Contemporary AI research increasingly recognizes the potential of such distributed architectures. Studies of fungal networks reveal sophisticated capabilities including spatial recognition, memory formation, and adaptive resource allocation that emerge from purely biological interactions.<sup id="ref16"><a href="#fn16">16</a></sup> These systems demonstrate what researchers describe as "network intelligence"—cognitive capabilities that arise from the structure and dynamics of connections rather than individual processing power.</p>
                 <p>The implications for artificial intelligence are profound. Myceloom architectures suggest that AI development might focus less on building more powerful individual models and more on creating sophisticated networks of interconnected systems that demonstrate collective intelligence. Recent research in bio-inspired AI shows that "systems that embody nature's distributed intelligence" offer more resilient and sustainable approaches to artificial intelligence than traditional centralized models.<sup id="ref17"><a href="#fn17">17</a></sup></p>
 
                 <h2>Programming the Living Network: Myceloom Applications</h2>
-                <p><strong>The Implementation:</strong> Current research demonstrates practical applications for myceloom architectures across multiple domains. Fungal computing researchers have shown that mycelial networks can solve complex optimization problems, including shortest path calculations, network topology optimization, and adaptive resource allocation.<sup id="ref18"><a href="#fn18">18</a></sup> These biological computers operate through environmental programming—modifying growth conditions to reprogram network geometry and computational behavior.</p>
+                <p>Current research demonstrates practical applications for myceloom architectures across multiple domains. Fungal computing researchers have shown that mycelial networks can solve complex optimization problems, including shortest path calculations, network topology optimization, and adaptive resource allocation.<sup id="ref18"><a href="#fn18">18</a></sup> These biological computers operate through environmental programming—modifying growth conditions to reprogram network geometry and computational behavior.</p>
                 <p>The applications extend beyond theoretical computation. Recent developments in sustainable memristors created from shiitake mycelium demonstrate that fungal materials can provide "scalable, eco-friendly platforms for neuromorphic tasks."<sup id="ref19"><a href="#fn19">19</a></sup> These biological processors offer alternatives to resource-intensive silicon architectures while demonstrating computational capabilities that parallel artificial neural networks.</p>
                 <p>Machine learning researchers are implementing myceloom principles through decentralized AI architectures that distribute computational tasks across networks of simple processors, mimicking how fungi allocate resources based on environmental needs.<sup id="ref20"><a href="#fn20">20</a></sup> These systems demonstrate the democratizing potential of myceloom architectures—reducing infrastructural requirements while maintaining sophisticated computational capabilities.</p>
 
                 <h2>The Future of Symbiotic Intelligence</h2>
-                <p><strong>The Trajectory:</strong> As documented in our foundational research, artificial intelligence systems are evolving toward collaborative architectures that enhance human capabilities through partnership rather than replacement.<sup id="ref21"><a href="#fn21">21</a></sup> Myceloom frameworks represent the infrastructural foundation for such collaboration—AI systems that integrate biological and artificial intelligence into symbiotic networks.</p>
+                <p>As documented in foundational research, artificial intelligence systems are evolving toward collaborative architectures that enhance human capabilities through partnership rather than replacement.<sup id="ref21"><a href="#fn21">21</a></sup> Myceloom frameworks represent the infrastructural foundation for such collaboration—AI systems that integrate biological and artificial intelligence into symbiotic networks.</p>
                 <p>The convergence suggests a future where artificial intelligence functions not as isolated tools but as nodes in vast cognitive networks that span biological and digital domains. Research in fungal robotics demonstrates that machines connected to living mycelial networks exhibit enhanced environmental responsiveness compared to purely digital systems.<sup id="ref22"><a href="#fn22">22</a></sup> These hybrid architectures point toward AI development that recognizes intelligence as inherently distributed, adaptive, and collaborative.</p>
-                <p>The linguistic innovation of "myceloom" provides essential terminology for this convergence. Rather than describing "bio-hybrid AI systems with fungal network integration," we can speak of myceloom architectures and immediately convey the essential qualities: biological, collaborative, adaptive, intelligent. This precision enables clearer thinking about AI development that honors both computational efficiency and organic wisdom.</p>
+                <p>The linguistic innovation of "myceloom" provides essential terminology for this convergence. Rather than describing "bio-hybrid AI systems with fungal network integration," one can speak of myceloom architectures and immediately convey the essential qualities: biological, collaborative, adaptive, intelligent. This precision enables clearer thinking about AI development that honors both computational efficiency and organic wisdom.</p>
                 <p>As we advance toward more sophisticated artificial intelligence, the mycelial networks beneath our feet offer profound lessons about distributed cognition, adaptive learning, and symbiotic collaboration. The future of AI may lie not in perfecting individual artificial minds, but in learning to weave them into the living networks that connect all intelligent life.</p>
                 <p>The myceloom framework captures this evolution: artificial intelligence systems that grow like fungi, adapt like living networks, and demonstrate the collaborative intelligence necessary for addressing complex global challenges. In this convergence of ancient biological wisdom and cutting-edge technology, we find not just computational efficiency, but a pathway toward AI that enhances rather than replaces the natural intelligence of living systems.</p>
 
                 <section class="footnotes">
                     <h2>Notes</h2>
                     <ol>
-                        <li id="fn1"><p>Nicholas P. Money, "Hyphal and Mycelial Consciousness: The Concept of the Fungal Mind," <em>Fungal Biology</em> 125, no. 4 (2021): 257-259.<a href="#ref1" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn2"><p>Andrew Adamatzky et al., "Mining Logical Circuits in Fungi," <em>Scientific Reports</em> 12 (2022): 15389.<a href="#ref2" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn3"><p>Cornell Chronicle, "Biohybrid Robots Controlled by Electrical Impulses—in Mushrooms," August 27, 2024.<a href="#ref3" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn4"><p>Adamatzky et al., "Mining Logical Circuits in Fungi."<a href="#ref4" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn5"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure," April 9, 2025.<a href="#ref5" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn6"><p>Paul Stamets, <em>Mycelium Running: How Mushrooms Can Help Save the World</em> (Berkeley: Ten Speed Press, 2005), 43.<a href="#ref6" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn7"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence," August 26, 2024.<a href="#ref7" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn8"><p>Rune Solberg, "How AI Can Learn from Nature's Mycelium Networks," LinkedIn, October 20, 2024.<a href="#ref8" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn9"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.<a href="#ref9" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn10"><p>Cornell Chronicle, "Biohybrid Robots Controlled by Electrical Impulses—in Mushrooms."<a href="#ref10" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn11"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence."<a href="#ref11" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn12"><p>BioRxiv Research Group, "Morphologically Tunable Mycelium Chips for Physical Reservoir Computing," <em>bioRxiv</em> (2025).<a href="#ref12" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn13"><p>Ibid.<a href="#ref13" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn14"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure."<a href="#ref14" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn15"><p>Andrew Adamatzky et al., "Towards Fungal Computer," <em>Interface Focus</em> 8, no. 6 (2018): 20180029.<a href="#ref15" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn16"><p>Lynne Boddy, "Fungal Behavior: A New Front in Behavioral Ecology," <em>Fungal Ecology</em> 32 (2018): 92-101.<a href="#ref16" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn17"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure."<a href="#ref17" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn18"><p>Adamatzky et al., "Towards Fungal Computer."<a href="#ref18" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn19"><p>BioRxiv Research Group, "Sustainable Memristors from Shiitake Mycelium for High-Frequency Neuromorphic Computing," <em>bioRxiv</em> (2025).<a href="#ref19" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn20"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure."<a href="#ref20" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn21"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.<a href="#ref21" class="footnote-back-link">↩</a></p></li>
-                        <li id="fn22"><p>SciWorthy, "Scientists Use Fungal Networks to Improve Robotics," June 24, 2025.<a href="#ref22" class="footnote-back-link">↩</a></p></li>
+                        <li id="fn1"><p>Nicholas P. Money, "Hyphal and Mycelial Consciousness: The Concept of the Fungal Mind," <em>Fungal Biology</em> 125, no. 4 (2021): 257-259.</p><a href="#ref1" class="footnote-back-link">↩</a></li>
+                        <li id="fn2"><p>Andrew Adamatzky et al., "Mining Logical Circuits in Fungi," <em>Scientific Reports</em> 12 (2022): 15389.</p><a href="#ref2" class="footnote-back-link">↩</a></li>
+                        <li id="fn3"><p>Cornell Chronicle, "Biohybrid Robots Controlled by Electrical Impulses—in Mushrooms," August 27, 2024.</p><a href="#ref3" class="footnote-back-link">↩</a></li>
+                        <li id="fn4"><p>Adamatzky et al., "Mining Logical Circuits in Fungi."</p><a href="#ref4" class="footnote-back-link">↩</a></li>
+                        <li id="fn5"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure," April 9, 2025.</p><a href="#ref5" class="footnote-back-link">↩</a></li>
+                        <li id="fn6"><p>Paul Stamets, <em>Mycelium Running: How Mushrooms Can Help Save the World</em> (Berkeley: Ten Speed Press, 2005), 43.</p><a href="#ref6" class="footnote-back-link">↩</a></li>
+                        <li id="fn7"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence," August 26, 2024.</p><a href="#ref7" class="footnote-back-link">↩</a></li>
+                        <li id="fn8"><p>Rune Solberg, "How AI Can Learn from Nature's Mycelium Networks," LinkedIn, October 20, 2024.</p><a href="#ref8" class="footnote-back-link">↩</a></li>
+                        <li id="fn9"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.</p><a href="#ref9" class="footnote-back-link">↩</a></li>
+                        <li id="fn10"><p>Cornell Chronicle, "Biohybrid Robots Controlled by Electrical Impulses—in Mushrooms."</p><a href="#ref10" class="footnote-back-link">↩</a></li>
+                        <li id="fn11"><p>The Mushroom Merchant, "The Mycelium Network: Nature's Neural Network and What It Can Teach Us About Intelligence."</p><a href="#ref11" class="footnote-back-link">↩</a></li>
+                        <li id="fn12"><p>BioRxiv Research Group, "Morphologically Tunable Mycelium Chips for Physical Reservoir Computing," <em>bioRxiv</em> (2025).</p><a href="#ref12" class="footnote-back-link">↩</a></li>
+                        <li id="fn13"><p>Ibid.</p><a href="#ref13" class="footnote-back-link">↩</a></li>
+                        <li id="fn14"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure."</p><a href="#ref14" class="footnote-back-link">↩</a></li>
+                        <li id="fn15"><p>Andrew Adamatzky et al., "Towards Fungal Computer," <em>Interface Focus</em> 8, no. 6 (2018): 20180029.</p><a href="#ref15" class="footnote-back-link">↩</a></li>
+                        <li id="fn16"><p>Lynne Boddy, "Fungal Behavior: A New Front in Behavioral Ecology," <em>Fungal Ecology</em> 32 (2018): 92-101.</p><a href="#ref16" class="footnote-back-link">↩</a></li>
+                        <li id="fn17"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure."</p><a href="#ref17" class="footnote-back-link">↩</a></li>
+                        <li id="fn18"><p>Adamatzky et al., "Towards Fungal Computer."</p><a href="#ref18" class="footnote-back-link">↩</a></li>
+                        <li id="fn19"><p>BioRxiv Research Group, "Sustainable Memristors from Shiitake Mycelium for High-Frequency Neuromorphic Computing," <em>bioRxiv</em> (2025).</p><a href="#ref19" class="footnote-back-link">↩</a></li>
+                        <li id="fn20"><p>Lambda Bio, "Network Intelligence: From Forest Floor to AI Infrastructure."</p><a href="#ref20" class="footnote-back-link">↩</a></li>
+                        <li id="fn21"><p>"Myceloom: The Linguistic Infrastructure of Web4," <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer">https://myceloom.com</a>.</p><a href="#ref21" class="footnote-back-link">↩</a></li>
+                        <li id="fn22"><p>SciWorthy, "Scientists Use Fungal Networks to Improve Robotics," June 24, 2025.</p><a href="#ref22" class="footnote-back-link">↩</a></li>
                     </ol>
                 </section>
             </article>
@@ -272,18 +289,19 @@
                 </div>
                 <div class="metadata-item">
                     <dt>Authors</dt>
-                    <dd>Josie Jefferson, Felix Velasco, and Sentientified Noospherians</dd>
+                    <dd>unearth.im</dd> <!-- Removed personas -->
                 </div>
                 <div class="metadata-item">
                     <dt>Core Concepts</dt>
+                    <!-- Converted <code> to <em> per guidelines -->
                     <dd>
-                        <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer"><code>myceloom.com</code></a><br>
-                        <a href="https://myceloom.org" target="_blank" rel="noopener noreferrer"><code>myceloom.org</code></a><br>
-                        <a href="https://myceloom.net" target="_blank" rel="noopener noreferrer"><code>myceloom.net</code></a><br>
-                        <code><span style="color: var(--accent-color); font-weight: 700;">myceloom.ai</span></code><br>
-                        <a href="https://myceloom.io" target="_blank" rel="noopener noreferrer"><code>myceloom.io</code></a><br>
-                        <a href="https://myceloom.im" target="_blank" rel="noopener noreferrer"><code>myceloom.im</code></a><br>
-                        <a href="https://myceloom.co" target="_blank" rel="noopener noreferrer"><code>myceloom.co</code></a>
+                        <a href="https://myceloom.com" target="_blank" rel="noopener noreferrer"><em>myceloom.com</em></a><br>
+                        <a href="https://myceloom.org" target="_blank" rel="noopener noreferrer"><em>myceloom.org</em></a><br>
+                        <a href="https://myceloom.net" target="_blank" rel="noopener noreferrer"><em>myceloom.net</em></a><br>
+                        <em class="main-domain">myceloom.ai</em><br>
+                        <a href="https://myceloom.io" target="_blank" rel="noopener noreferrer"><em>myceloom.io</em></a><br>
+                        <a href="https://myceloom.im" target="_blank" rel="noopener noreferrer"><em>myceloom.im</em></a><br>
+                        <a href="https://myceloom.co" target="_blank" rel="noopener noreferrer"><em>myceloom.co</em></a>
                     </dd>
                 </div>
                 <div class="metadata-item">
