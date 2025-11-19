@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Narrative Provenance -->
+    <title>The Myceloom Cosmology | An Interactive Map</title>
+    <meta name="title" content="The Myceloom Cosmology | An Interactive Map">
+    <meta name="description" content="An interactive digital map of the Myceloom cosmology, exploring the symbiotic web of its seven interconnected domains.">
+    <meta name="keywords" content="Myceloom, Web4, Symbiotic Web, Digital Archaeology, Distributed Intelligence, Interactive Map, unearth.im, myceloom.com, myceloom.org, myceloom.net, myceloom.io, myceloom.ai, myceloom.im, myceloom.co">
+    <meta name="author" content="unearth.im">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myceloom.com/myceloom-infographic.html">
+    <meta property="og:title" content="The Myceloom Cosmology | An Interactive Map">
+    <meta property="og:description" content="An interactive digital map of the Myceloom cosmology, exploring the symbiotic web of its seven interconnected domains.">
+    <meta property="og:site_name" content="The Myceloom Series">
+    <meta property="og:image" content="https://myceloom.com/og-preview-series.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://myceloom.com/myceloom-infographic.html">
+    <meta property="twitter:title" content="The Myceloom Cosmology | An Interactive Map">
+    <meta property="twitter:description" content="An interactive digital map of the Myceloom cosmology, exploring the symbiotic web of its seven interconnected domains.">
+    <meta property="twitter:image" content="https://myceloom.com/og-preview-series.png">
+
+    <!-- Canonical & Webmention -->
+    <link rel="canonical" href="https://myceloom.com/myceloom-infographic.html">
+    <link rel="webmention" href="https://webmention.io/unearth.im/webmention" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Custom Styles for the Digital Archaeology Aesthetic -->
+    <style>
+        :root {
+            --bg-color: #F8F7F4;
+            --text-color: #2E2E2E;
+            --accent-color: #A95C3D;
+            --meta-text-color: #5A7D8C;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+        }
+
+        .font-serif { font-family: 'Lora', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+
+        .node-btn {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .node-btn:hover {
+            transform: translate(-50%, -50%) translateY(-3px);
+            box-shadow: 0 4px 15px rgba(169, 92, 61, 0.15);
+        }
+
+        .active-ring {
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(169, 92, 61, 0.3); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(169, 92, 61, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(169, 92, 61, 0); }
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // --- Icon Components (Inlined for portability) ---
+        const Network = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+        );
+        const Globe = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        );
+        const User = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        );
+        const Cpu = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+        );
+        const Activity = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        );
+        const Share2 = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+        );
+        const GitMerge = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+        );
+        const Heart = ({ className, style }) => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        );
+
+
+        const MyceloomInfographic = () => {
+            const [activeNode, setActiveNode] = useState('core');
+
+            // Palette Constants
+            const colors = {
+                bg: '#F8F7F4',
+                text: '#2E2E2E',
+                accent: '#A95C3D', // Terracotta
+                meta: '#5A7D8C',   // Slate Blue
+                border: '#e0e0e0',
+                cardBg: '#ffffff',
+            };
+
+            const essays = {
+                core: {
+                id: 'core',
+                title: 'MYCELOOM',
+                subtitle: 'The Synthesis',
+                icon: <Network className="w-8 h-8 md:w-10 md:h-10" />,
+                thesis: 'The Symbiotic Web',
+                description: 'The overarching philosophy that Web4 must mimic biological networks. It is the synthesis of "Mycelium" (distributed natural intelligence) and "Loom" (human weaving of infrastructure).',
+                connection: 'The central hub that binds all other domains together.',
+                },
+                com: {
+                id: 'com',
+                title: 'myceloom.com',
+                subtitle: 'The Definition',
+                icon: <Globe className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'The Linguistic Infrastructure',
+                description: 'Defines the terminology. It argues that we lack the language to describe Web4, and "Myceloom" fills that gap by combining organic growth with engineered structure.',
+                connection: 'Provides the NAME and DEFINITION for the entire system.',
+                },
+                im: {
+                id: 'im',
+                title: 'myceloom.im',
+                subtitle: 'The Self',
+                icon: <User className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'Networked Individuality',
+                description: 'Philosophy of the Self. "I am" because "We are." It refutes the idea that you must lose yourself to the collective. Strong nodes make strong networks.',
+                connection: 'The PHILOSOPHICAL core: How the human fits into the machine.',
+                },
+                ai: {
+                id: 'ai',
+                title: 'myceloom.ai',
+                subtitle: 'The Mind',
+                icon: <Cpu className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'Biological Intelligence',
+                description: 'Moves AI from silicon-only logic to distributed, fungal-inspired computing. Intelligence is collaborative and environmental, not just processing power.',
+                connection: 'The BRAIN: How the system thinks and processes.',
+                },
+                net: {
+                id: 'net',
+                title: 'myceloom.net',
+                subtitle: 'The Structure',
+                icon: <Activity className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'Resilient Architecture',
+                description: 'Focuses on topology and fault tolerance. Like a forest floor, the network self-heals. If one path breaks, the system reroutes instantly.',
+                connection: 'The SKELETON: The technical structure that holds it up.',
+                },
+                io: {
+                id: 'io',
+                title: 'myceloom.io',
+                subtitle: 'The Spores',
+                icon: <Share2 className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'Living Interfaces',
+                description: 'Reimagines APIs as "Spores." Interfaces shouldn\'t be rigid gates; they should be active propagation mechanisms that expand the network automatically.',
+                connection: 'The CONNECTORS: How data flows in and out.',
+                },
+                co: {
+                id: 'co',
+                title: 'myceloom.co',
+                subtitle: 'The Exchange',
+                icon: <GitMerge className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'The Coalition Substrate',
+                description: 'Commerce meets Community. Redefines business as "Co-alition" and "Co-mpany." It is about distributed interdependence rather than extraction.',
+                connection: 'The ECONOMY: How value is exchanged.',
+                },
+                org: {
+                id: 'org',
+                title: 'myceloom.org',
+                subtitle: 'The Heart',
+                icon: <Heart className="w-4 h-4 md:w-5 md:h-5" />,
+                thesis: 'Community Organism',
+                description: 'Governance and social layer. Moving from hierarchy to "mycelial democracy." Communities function as immune systems for the network.',
+                connection: 'The SOCIAL PURPOSE and governance layer.',
+                }
+            };
+
+            const ORBIT_RADIUS = 45; 
+            const TOTAL_NODES = 7;
+
+            return (
+                <div className="min-h-screen transition-colors duration-500 ease-in-out" style={{ backgroundColor: colors.bg, color: colors.text }}>
+                
+                <div className="max-w-6xl mx-auto p-6 md:p-12">
+                    
+                    {/* Header */}
+                    <header className="mb-16 text-center border-b border-[#e0e0e0] pb-12">
+                    <div className="inline-flex items-center justify-center mb-6">
+                        <a href="https://unearth.im" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center group" style={{ textDecoration: 'none' }}>
+                            <Network className="w-8 h-8 mr-3" style={{ color: colors.accent }} />
+                            <span className="font-sans font-semibold tracking-widest text-xs uppercase group-hover:opacity-70 transition-opacity" style={{ color: colors.meta }}>
+                            UNEARTH.IM ARCHIVES
+                            </span>
+                        </a>
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4" style={{ color: colors.text }}>
+                        The Myceloom Cosmology
+                    </h1>
+                    <p className="font-sans text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: colors.meta }}>
+                        A digital archaeological map of the symbiotic web.
+                    </p>
+                    </header>
+
+                    {/* Main Interaction Area */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    
+                    {/* Left Col: The Visual Map */}
+                    <div className="lg:col-span-7 relative min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-white rounded-lg border border-[#e0e0e0] p-8 shadow-sm overflow-hidden">
+                        {/* Background Grid */}
+                        <div className="absolute inset-0 opacity-30" 
+                            style={{
+                                backgroundImage: `linear-gradient(${colors.border} 1px, transparent 1px), linear-gradient(90deg, ${colors.border} 1px, transparent 1px)`,
+                                backgroundSize: '40px 40px'
+                            }}>
+                        </div>
+                        
+                        {/* Central Core Node */}
+                        <div className="relative z-10 w-full h-full flex items-center justify-center">
+                            <button 
+                                onClick={() => setActiveNode('core')}
+                                className={`absolute z-20 w-28 h-28 md:w-36 md:h-36 rounded-full flex items-center justify-center border bg-white transition-all duration-500
+                                ${activeNode === 'core' ? 'shadow-xl' : 'shadow-sm hover:border-[#A95C3D]'}`}
+                                style={{ 
+                                borderColor: activeNode === 'core' ? colors.accent : colors.border,
+                                color: activeNode === 'core' ? colors.accent : colors.meta
+                                }}
+                            >
+                                {activeNode === 'core' && <div className="absolute inset-0 rounded-full active-ring" />}
+                                
+                                <div className="text-center relative z-10">
+                                <div className="mx-auto mb-2">
+                                    <Network className="w-8 h-8 md:w-12 md:h-12 mx-auto" />
+                                </div>
+                                <span className="font-sans text-[10px] md:text-xs font-bold tracking-widest uppercase">Synthesis</span>
+                                </div>
+                            </button>
+
+                            {/* Connecting Lines (SVG) */}
+                            <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+                                {Object.keys(essays).filter(k => k !== 'core').map((key, index) => {
+                                const angle = (index * (360 / TOTAL_NODES)) - 90; 
+                                const rad = angle * (Math.PI / 180);
+                                const x = 50 + (Math.cos(rad) * ORBIT_RADIUS); 
+                                const y = 50 + (Math.sin(rad) * ORBIT_RADIUS);
+                                
+                                const isActive = activeNode === key || activeNode === 'core';
+
+                                return (
+                                    <g key={`line-${key}`}>
+                                    <line 
+                                        x1="50%" y1="50%" 
+                                        x2={`${x}%`} y2={`${y}%`} 
+                                        className="stroke-1 transition-all duration-500"
+                                        style={{ 
+                                        stroke: isActive ? colors.accent : colors.border,
+                                        opacity: isActive ? 0.6 : 0.4
+                                        }}
+                                    />
+                                    {isActive && (
+                                        <circle r="1" fill={colors.accent}>
+                                        <animateMotion dur="4s" repeatCount="indefinite" path={`M 50% 50% L ${x}% ${y}%`} />
+                                        </circle>
+                                    )}
+                                    </g>
+                                );
+                                })}
+                            </svg>
+
+                            {/* Orbiting Nodes */}
+                            {Object.keys(essays).filter(k => k !== 'core').map((key, index) => {
+                                const angle = (index * (360 / TOTAL_NODES)) - 90;
+                                const rad = angle * (Math.PI / 180);
+                                const x = 50 + (Math.cos(rad) * ORBIT_RADIUS); 
+                                const y = 50 + (Math.sin(rad) * ORBIT_RADIUS);
+
+                                const isActive = activeNode === key;
+
+                                return (
+                                <button
+                                    key={key}
+                                    onClick={() => setActiveNode(key)}
+                                    style={{ left: `${x}%`, top: `${y}%` }}
+                                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 z-10 w-20 h-20 rounded-full flex flex-col items-center justify-center border bg-white node-btn
+                                    ${isActive ? 'shadow-lg scale-110' : 'shadow-sm'}`}
+                                >
+                                    <div 
+                                    className="transition-colors duration-300 mb-1"
+                                    style={{ color: isActive ? colors.accent : colors.meta }}
+                                    >
+                                    {essays[key].icon}
+                                    </div>
+                                    <span className="font-sans text-[9px] font-bold tracking-widest uppercase" style={{ color: isActive ? colors.text : colors.meta }}>
+                                    .{essays[key].id}
+                                    </span>
+                                    
+                                    <div className="absolute inset-0 rounded-full border-2 transition-colors duration-300"
+                                        style={{ borderColor: isActive ? colors.accent : 'transparent' }}></div>
+                                        
+                                    {!isActive && (
+                                    <div className="absolute inset-0 rounded-full border transition-colors duration-300"
+                                        style={{ borderColor: colors.border }}></div>
+                                    )}
+                                </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Right Col: The Info Card */}
+                    <div className="lg:col-span-5 flex flex-col h-full">
+                        <div className="bg-white p-8 md:p-10 rounded-lg border shadow-sm h-full flex flex-col justify-between transition-all duration-300 ease-out animate-fade-up"
+                            key={activeNode} 
+                            style={{ borderColor: colors.border }}>
+                        
+                        <div>
+                            {/* Meta Tag */}
+                            <div className="flex items-center gap-3 mb-6">
+                            <span className="font-sans text-xs font-bold uppercase tracking-widest px-2 py-1 rounded bg-[#F8F7F4]" 
+                                    style={{ color: colors.meta }}>
+                                {activeNode === 'core' ? 'The Center' : `Domain: .${activeNode}`}
+                            </span>
+                            <div className="h-px flex-grow" style={{ backgroundColor: colors.border }}></div>
+                            </div>
+                            
+                            {/* Title */}
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-1 leading-tight" style={{ color: colors.text }}>
+                            {essays[activeNode].title}
+                            </h2>
+                            {activeNode !== 'core' && (
+                            <h3 className="font-serif text-lg md:text-xl italic mb-6 opacity-80" style={{ color: colors.meta }}>
+                                {essays[activeNode].subtitle}
+                            </h3>
+                            )}
+                            
+                            {/* Thesis Statement */}
+                            <div className="pl-4 border-l-2 mb-8" style={{ borderColor: colors.accent }}>
+                            <p className="font-serif text-lg md:text-xl font-medium italic leading-relaxed" style={{ color: colors.text }}>
+                                "{essays[activeNode].thesis}"
+                            </p>
+                            </div>
+                            
+                            {/* Content */}
+                            <div className="space-y-6">
+                            <p className="font-sans text-sm md:text-base leading-7" style={{ color: colors.text }}>
+                                {essays[activeNode].description}
+                            </p>
+                            
+                            <div className="pt-6 border-t" style={{ borderColor: colors.border }}>
+                                <div className="flex items-start gap-3">
+                                <GitMerge className="w-5 h-5 mt-1 flex-shrink-0" style={{ color: colors.accent }} />
+                                <div>
+                                    <h4 className="font-sans text-xs font-bold uppercase tracking-widest mb-1" style={{ color: colors.meta }}>
+                                    Connection to Thesis
+                                    </h4>
+                                    <p className="font-serif text-sm md:text-base italic" style={{ color: colors.text }}>
+                                    {essays[activeNode].connection}
+                                    </p>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        {/* Card Footer */}
+                        <div className="mt-10 pt-4 flex justify-between items-center border-t" style={{ borderColor: colors.border }}>
+                            <span className="font-sans text-xs font-semibold" style={{ color: colors.meta }}>
+                            ID: {activeNode.toUpperCase()}-2025
+                            </span>
+                            {activeNode !== 'core' && (
+                            <button 
+                                onClick={() => setActiveNode('core')}
+                                className="font-sans text-xs font-bold uppercase tracking-widest hover:opacity-70 transition-opacity flex items-center"
+                                style={{ color: colors.accent }}
+                            >
+                                Return to Center <Network className="w-3 h-3 ml-2" />
+                            </button>
+                            )}
+                        </div>
+
+                        </div>
+                    </div>
+
+                    </div>
+
+                    {/* Footer Summary */}
+                    <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 font-sans text-center md:text-left">
+                    <div className="pt-6 border-t" style={{ borderColor: colors.border }}>
+                        <h3 className="font-serif text-lg font-bold mb-2" style={{ color: colors.accent }}>Organic Structure</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: colors.meta }}>
+                        Structure is bottom-up, not top-down. The network supports the individual node.
+                        </p>
+                    </div>
+                    <div className="pt-6 border-t" style={{ borderColor: colors.border }}>
+                        <h3 className="font-serif text-lg font-bold mb-2" style={{ color: colors.accent }}>Living Language</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: colors.meta }}>
+                        (.com) provides the vernacular to conceptualize this shift.
+                        </p>
+                    </div>
+                    <div className="pt-6 border-t" style={{ borderColor: colors.border }}>
+                        <h3 className="font-serif text-lg font-bold mb-2" style={{ color: colors.accent }}>Symbiotic AI</h3>
+                        <p className="text-sm leading-relaxed" style={{ color: colors.meta }}>
+                        Transforming technology from a tool we use into an environment we inhabit.
+                        </p>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MyceloomInfographic />);
+    </script>
+</body>
+</html>
