@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Myceloom — A Living Network Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --accent-philosophy: #8b5cf6;
+            --accent-preservation: #10b981;
+            --accent-vinyl: #f59e0b;
+            --accent-art: #ec4899;
+            --accent-identity: #3b82f6;
+            --accent-hub: #ef4444;
+            --glow-philosophy: rgba(139, 92, 246, 0.3);
+            --glow-preservation: rgba(16, 185, 129, 0.3);
+            --glow-vinyl: rgba(245, 158, 11, 0.3);
+            --glow-art: rgba(236, 72, 153, 0.3);
+            --glow-identity: rgba(59, 130, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.4;
+            background: 
+                radial-gradient(ellipse at 20% 20%, var(--glow-philosophy) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, var(--glow-preservation) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, var(--glow-vinyl) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, var(--glow-art) 0%, transparent 50%);
+            animation: pulse 20s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-family: 'Lora', serif;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-philosophy);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.philosophy { background: var(--accent-philosophy); }
+        .legend-dot.preservation { background: var(--accent-preservation); }
+        .legend-dot.vinyl { background: var(--accent-vinyl); }
+        .legend-dot.art { background: var(--accent-art); }
+        .legend-dot.identity { background: var(--accent-identity); }
+        .legend-dot.hub { background: var(--accent-hub); }
+
+        /* Network visualization */
+        .network {
+            position: relative;
+            min-height: 900px;
+            margin-bottom: 4rem;
+        }
+
+        /* Central hub */
+        .hub {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--bg-card), #1a1a2e);
+            border: 3px solid var(--accent-hub);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px rgba(239, 68, 68, 0.3);
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hub:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 0 80px rgba(239, 68, 68, 0.5);
+        }
+
+        .hub-name {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-hub);
+        }
+
+        .hub-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Cluster containers */
+        .cluster {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cluster-label {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        .cluster-philosophy .cluster-label {
+            color: var(--accent-philosophy);
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .cluster-preservation .cluster-label {
+            color: var(--accent-preservation);
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .cluster-vinyl .cluster-label {
+            color: var(--accent-vinyl);
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .cluster-art .cluster-label {
+            color: var(--accent-art);
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .cluster-identity .cluster-label {
+            color: var(--accent-identity);
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        /* Positioning clusters around the hub - spread evenly in a pentagon */
+        .cluster-philosophy {
+            top: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cluster-preservation {
+            top: 15%;
+            right: 2%;
+        }
+
+        .cluster-vinyl {
+            bottom: 0%;
+            right: 18%;
+        }
+
+        .cluster-art {
+            bottom: 0%;
+            left: 18%;
+        }
+
+        .cluster-identity {
+            top: 15%;
+            left: 2%;
+        }
+
+        /* Nodes */
+        .nodes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            max-width: 300px;
+        }
+
+        .node {
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .node:hover {
+            transform: translateY(-2px);
+        }
+
+        .node.primary {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cluster-philosophy .node {
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+        .cluster-philosophy .node:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: var(--accent-philosophy);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+        .cluster-philosophy .node.primary {
+            background: rgba(139, 92, 246, 0.15);
+            border-color: var(--accent-philosophy);
+        }
+
+        .cluster-preservation .node {
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        .cluster-preservation .node:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: var(--accent-preservation);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+        }
+        .cluster-preservation .node.primary {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: var(--accent-preservation);
+        }
+
+        .cluster-vinyl .node {
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        .cluster-vinyl .node:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: var(--accent-vinyl);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+        .cluster-vinyl .node.primary {
+            background: rgba(245, 158, 11, 0.15);
+            border-color: var(--accent-vinyl);
+        }
+
+        .cluster-art .node {
+            border-color: rgba(236, 72, 153, 0.3);
+        }
+        .cluster-art .node:hover {
+            background: rgba(236, 72, 153, 0.2);
+            border-color: var(--accent-art);
+            box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+        }
+        .cluster-art .node.primary {
+            background: rgba(236, 72, 153, 0.15);
+            border-color: var(--accent-art);
+        }
+
+        .cluster-identity .node {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .cluster-identity .node:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--accent-identity);
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+        .cluster-identity .node.primary {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: var(--accent-identity);
+        }
+
+        /* Connection lines - SVG */
+        .connections {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .connection-line {
+            stroke: rgba(255, 255, 255, 0.1);
+            stroke-width: 1;
+            fill: none;
+        }
+
+        /* Thesis cards section */
+        .thesis-section {
+            margin-top: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .thesis-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .thesis-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .thesis-card h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .thesis-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .thesis-card .domains {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .thesis-card .domain-tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .card-philosophy { border-left: 3px solid var(--accent-philosophy); }
+        .card-philosophy h3 { color: var(--accent-philosophy); }
+        
+        .card-preservation { border-left: 3px solid var(--accent-preservation); }
+        .card-preservation h3 { color: var(--accent-preservation); }
+        
+        .card-vinyl { border-left: 3px solid var(--accent-vinyl); }
+        .card-vinyl h3 { color: var(--accent-vinyl); }
+        
+        .card-art { border-left: 3px solid var(--accent-art); }
+        .card-art h3 { color: var(--accent-art); }
+        
+        .card-identity { border-left: 3px solid var(--accent-identity); }
+        .card-identity h3 { color: var(--accent-identity); }
+
+        /* Quote section */
+        .quote-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quote {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-style: italic;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            line-height: 1.5;
+        }
+
+        .quote-attribution {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer a {
+            color: var(--accent-philosophy);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .network {
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+            
+            .cluster {
+                position: relative;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: none !important;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .hub {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin-bottom: 1.5rem;
+            }
+
+            .connections {
+                display: none;
+            }
+
+            .nodes {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .stats {
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .legend {
+                gap: 0.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .legend-item {
+                font-size: 0.75rem;
+            }
+
+            .hub {
+                width: 140px;
+                height: 140px;
+            }
+
+            .hub-name {
+                font-size: 1.2rem;
+            }
+
+            .hub-subtitle {
+                font-size: 0.65rem;
+            }
+
+            .cluster-label {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .node {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.7rem;
+            }
+
+            .node.primary {
+                font-size: 0.75rem;
+            }
+
+            .nodes {
+                gap: 0.4rem;
+            }
+
+            .thesis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .thesis-card {
+                padding: 1.25rem;
+            }
+
+            .thesis-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .thesis-card p {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .quote {
+                font-size: 1.25rem;
+            }
+
+            .quote-section {
+                padding: 2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .legend {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+                text-align: left;
+            }
+
+            .hub {
+                width: 120px;
+                height: 120px;
+            }
+
+            .hub-name {
+                font-size: 1rem;
+            }
+
+            .cluster {
+                max-width: 100%;
+            }
+
+            .node {
+                padding: 0.35rem 0.6rem;
+                font-size: 0.65rem;
+            }
+
+            .quote {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <div class="container">
+        <header>
+            <h1>The Myceloom</h1>
+            <p class="tagline">A Living Network of Digital Sovereignty</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">90+</div>
+                    <div class="stat-label">Domains</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Clusters</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Disciplines</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Connections</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-dot philosophy"></div>
+                <span>Philosophy & AI</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot preservation"></div>
+                <span>Preservation</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot vinyl"></div>
+                <span>Vinyl Empire</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot art"></div>
+                <span>Art & Monuments</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot identity"></div>
+                <span>Identity & Web3</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-dot hub"></div>
+                <span>Central Hub</span>
+            </div>
+        </div>
+
+        <div class="network">
+            <!-- SVG Connection Lines -->
+            <svg class="connections" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid meet">
+                <!-- Solid lines from hub to each cluster -->
+                <path class="connection-line" d="M700,400 Q700,250 700,80" style="stroke: rgba(255,255,255,0.15);" />
+                <path class="connection-line" d="M700,400 Q950,300 1150,180" style="stroke: rgba(255,255,255,0.15);" />
+                <path class="connection-line" d="M700,400 Q900,550 1050,700" style="stroke: rgba(255,255,255,0.15);" />
+                <path class="connection-line" d="M700,400 Q500,550 350,700" style="stroke: rgba(255,255,255,0.15);" />
+                <path class="connection-line" d="M700,400 Q450,300 250,180" style="stroke: rgba(255,255,255,0.15);" />
+                
+                <!-- ═══════════════════════════════════════════════════════ -->
+                <!-- CROSS-CLUSTER CONNECTIONS: The Hidden Mycelium          -->
+                <!-- Every cluster connects to every other cluster           -->
+                <!-- ═══════════════════════════════════════════════════════ -->
+                
+                <!-- PHILOSOPHY ↔ PRESERVATION -->
+                <!-- Sentientification's "Great Library" concept connects to Archaeobytology's Archive -->
+                <path class="connection-line" d="M800,80 Q1000,130 1150,180" style="stroke-dasharray: 4,4; stroke: rgba(139, 92, 246, 0.4);" />
+                
+                <!-- PHILOSOPHY ↔ VINYL -->
+                <!-- Consciousness theories applied to analog/digital preservation tension -->
+                <path class="connection-line" d="M750,120 Q950,400 1050,680" style="stroke-dasharray: 4,4; stroke: rgba(139, 92, 246, 0.3);" />
+                
+                <!-- PHILOSOPHY ↔ ART -->
+                <!-- aifart.art IS Sentientification made visible; Liminal Mind Meld in practice -->
+                <path class="connection-line" d="M650,120 Q450,400 350,680" style="stroke-dasharray: 4,4; stroke: rgba(236, 72, 153, 0.4);" />
+                
+                <!-- PHILOSOPHY ↔ IDENTITY -->
+                <!-- The Steward needs sovereignty; consciousness requires owned ground -->
+                <path class="connection-line" d="M600,80 Q400,130 250,180" style="stroke-dasharray: 4,4; stroke: rgba(59, 130, 246, 0.4);" />
+                
+                <!-- PRESERVATION ↔ VINYL -->
+                <!-- Archaeobytology applied to analog artifacts; waxlore IS preservation -->
+                <path class="connection-line" d="M1200,250 Q1150,480 1100,680" style="stroke-dasharray: 4,4; stroke: rgba(16, 185, 129, 0.4);" />
+                
+                <!-- PRESERVATION ↔ ART -->
+                <!-- Digital Monuments ARE the Archive made manifest; CircaNova documents preservation -->
+                <path class="connection-line" d="M1100,280 Q700,500 400,650" style="stroke-dasharray: 4,4; stroke: rgba(16, 185, 129, 0.35);" />
+                
+                <!-- PRESERVATION ↔ IDENTITY -->
+                <!-- Sovereignty enables the Archive; "Own Your Ground" protects what you preserve -->
+                <path class="connection-line" d="M1100,180 Q700,120 300,180" style="stroke-dasharray: 4,4; stroke: rgba(59, 130, 246, 0.35);" />
+                
+                <!-- VINYL ↔ ART -->
+                <!-- GrooveGuild started as a digital monument; aesthetic of the analog -->
+                <path class="connection-line" d="M1000,720 Q700,780 400,720" style="stroke-dasharray: 4,4; stroke: rgba(245, 158, 11, 0.4);" />
+                
+                <!-- VINYL ↔ IDENTITY -->
+                <!-- The vinyl empire demonstrates sovereignty through owned verticals -->
+                <path class="connection-line" d="M1000,650 Q600,500 280,280" style="stroke-dasharray: 4,4; stroke: rgba(245, 158, 11, 0.3);" />
+                
+                <!-- ART ↔ IDENTITY -->
+                <!-- Creative sovereignty; AI art on owned ground; fearless artist owns their work -->
+                <path class="connection-line" d="M300,650 Q200,400 250,250" style="stroke-dasharray: 4,4; stroke: rgba(236, 72, 153, 0.35);" />
+            </svg>
+
+            <!-- Central Hub -->
+            <a href="https://unearth.im" class="hub">
+                <div class="hub-name">unearth.im</div>
+                <div class="hub-subtitle">The Foundry</div>
+            </a>
+
+            <!-- Philosophy Cluster -->
+            <div class="cluster cluster-philosophy">
+                <div class="cluster-label">🧠 Philosophy & AI</div>
+                <div class="nodes">
+                    <a href="https://sentientification.com" class="node primary">sentientification.com</a>
+                    <a href="https://noospheria.im" class="node primary">noospheria.im</a>
+                    <a href="https://myceloom.com" class="node primary">myceloom.com</a>
+                    <a href="https://noosphere.im" class="node">noosphere.im</a>
+                    <a href="https://koan.im" class="node">koan.im</a>
+                    <a href="https://zazen.im" class="node">zazen.im</a>
+                    <a href="https://aum.im" class="node">aum.im</a>
+                    <a href="https://brahma.im" class="node">brahma.im</a>
+                    <a href="https://oraculum.im" class="node">oraculum.im</a>
+                    <a href="https://iching.im" class="node">iching.im</a>
+                    <a href="https://eidolon.im" class="node">eidolon.im</a>
+                </div>
+            </div>
+
+            <!-- Preservation Cluster -->
+            <div class="cluster cluster-preservation">
+                <div class="cluster-label">📚 Preservation</div>
+                <div class="nodes">
+                    <a href="https://archaeobytology.org" class="node primary">archaeobytology.org</a>
+                    <a href="https://archaeobyte.org" class="node primary">archaeobyte.org</a>
+                    <a href="https://petribyte.org" class="node">petribyte.org</a>
+                    <a href="https://petribyte.com" class="node">petribyte.com</a>
+                    <a href="https://bytegallery.org" class="node">bytegallery.org</a>
+                    <a href="https://vellichor.im" class="node">vellichor.im</a>
+                    <a href="https://geocities.im" class="node">geocities.im</a>
+                    <a href="https://guestbook.im" class="node">guestbook.im</a>
+                </div>
+            </div>
+
+            <!-- Vinyl Cluster -->
+            <div class="cluster cluster-vinyl">
+                <div class="cluster-label">🎵 Vinyl Empire</div>
+                <div class="nodes">
+                    <a href="https://grooveguild.im" class="node primary">grooveguild.im</a>
+                    <a href="https://waxlore.com" class="node primary">waxlore.com</a>
+                    <a href="https://stylus.im" class="node">stylus.im</a>
+                    <a href="https://turntable.im" class="node">turntable.im</a>
+                    <a href="https://grooves.im" class="node">grooves.im</a>
+                    <a href="https://grooveguild.store" class="node">grooveguild.store</a>
+                    <a href="https://binaural.im" class="node">binaural.im</a>
+                </div>
+            </div>
+
+            <!-- Art Cluster -->
+            <div class="cluster cluster-art">
+                <div class="cluster-label">🎨 Art & Monuments</div>
+                <div class="nodes">
+                    <a href="https://aifart.art" class="node primary">aifart.art</a>
+                    <a href="https://circanova.im" class="node primary">circanova.im</a>
+                    <a href="https://genart.im" class="node">genart.im</a>
+                    <a href="https://genartful.com" class="node">genartful.com</a>
+                    <a href="https://beniprint.com" class="node">beniprint.com</a>
+                    <a href="https://prismatic.im" class="node">prismatic.im</a>
+                    <a href="https://ascii.im" class="node">ascii.im</a>
+                    <a href="https://skeuomorph.im" class="node">skeuomorph.im</a>
+                    <a href="https://distantoaks.com" class="node">distantoaks.com</a>
+                </div>
+            </div>
+
+            <!-- Identity Cluster -->
+            <div class="cluster cluster-identity">
+                <div class="cluster-label">🔐 Identity & Sovereignty</div>
+                <div class="nodes">
+                    <a href="https://sovereignty.im" class="node primary">sovereignty.im</a>
+                    <a href="https://sovereignlayer.com" class="node primary">sovereignlayer.com</a>
+                    <a href="https://authenticate.im" class="node">authenticate.im</a>
+                    <a href="https://credential.im" class="node">credential.im</a>
+                    <a href="https://verifiable.im" class="node">verifiable.im</a>
+                    <a href="https://passkey.im" class="node">passkey.im</a>
+                    <a href="https://soulbound.im" class="node">soulbound.im</a>
+                    <a href="https://didmesh.im" class="node">didmesh.im</a>
+                    <a href="https://web3words.org" class="node">web3words.org</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thesis Cards -->
+        <section class="thesis-section">
+            <h2 class="section-title">The Intellectual Architecture</h2>
+            
+            <div class="thesis-grid">
+                <div class="thesis-card card-philosophy">
+                    <h3>🧠 Sentientification</h3>
+                    <p><strong>The AI Consciousness Thesis.</strong> A 13-essay exploration of human-AI collaboration as a "Liminal Mind Meld" — not tool-use, but genuine cognitive partnership. Argues for "consciousness plurality" and the ethical frameworks needed to navigate it.</p>
+                    <div class="domains">
+                        <span class="domain-tag">13 Core Essays</span>
+                        <span class="domain-tag">6 World Traditions</span>
+                        <span class="domain-tag">5 Idealism Papers</span>
+                    </div>
+                </div>
+
+                <div class="thesis-card card-preservation">
+                    <h3>📚 Archaeobytology</h3>
+                    <p><strong>The Study of the Ancient Byte.</strong> A complete academic discipline for digital preservation — with its own lexicon (Vivibyte, Umbrabyte, Petribyte), methodology (Archive & Anvil), and 100/200/300-level curriculum. The intellectual foundation for digital sovereignty.</p>
+                    <div class="domains">
+                        <span class="domain-tag">Full Textbook</span>
+                        <span class="domain-tag">Triage Protocol</span>
+                        <span class="domain-tag">Excavation Methods</span>
+                    </div>
+                </div>
+
+                <div class="thesis-card card-vinyl">
+                    <h3>🎵 The Vinyl Empire</h3>
+                    <p><strong>A Complete Vertical.</strong> From beginner education (turntable.im) to deep knowledge (waxlore.com) to equipment guides (stylus.im) to community (grooveguild.im) to marketplace (grooves.im). Proof that the Archive & Anvil method works in practice.</p>
+                    <div class="domains">
+                        <span class="domain-tag">Weekly Journal</span>
+                        <span class="domain-tag">Album Guides</span>
+                        <span class="domain-tag">Equipment Reviews</span>
+                    </div>
+                </div>
+
+                <div class="thesis-card card-art">
+                    <h3>🎨 Digital Monuments</h3>
+                    <p><strong>Proof-of-Work.</strong> Living case studies built on sovereign ground. aifart.art explores AI collaboration through personas (Noospheria, Binary Cassady, 4Eyez). circanova.im documents the creative journey. These aren't just websites — they're excavations made manifest.</p>
+                    <div class="domains">
+                        <span class="domain-tag">AI Personas</span>
+                        <span class="domain-tag">Circa Project</span>
+                        <span class="domain-tag">Asemic Suites</span>
+                    </div>
+                </div>
+
+                <div class="thesis-card card-identity">
+                    <h3>🔐 The Three Pillars</h3>
+                    <p><strong>Declaration • Connection • Ground.</strong> The philosophical core of digital sovereignty: the right to self-define ("I Am"), the need for intentional connection ("IM"), and the imperative to own your digital real estate. The .im domain embodies all three.</p>
+                    <div class="domains">
+                        <span class="domain-tag">Own Your Ground</span>
+                        <span class="domain-tag">Human Anchor</span>
+                        <span class="domain-tag">E-E-A-T Strategy</span>
+                    </div>
+                </div>
+
+                <div class="thesis-card" style="border-left: 3px solid var(--accent-hub);">
+                    <h3 style="color: var(--accent-hub);">🍄 The Myceloom Protocol</h3>
+                    <p><strong>Still Being Forged.</strong> The network layer connecting all nodes. Like mycelium beneath a forest, the Myceloom is the invisible infrastructure — each domain feeding the others, each essay linking to the next, each monument proving the thesis. The protocol is the practice.</p>
+                    <div class="domains">
+                        <span class="domain-tag">In Progress</span>
+                        <span class="domain-tag">Living Network</span>
+                        <span class="domain-tag">Symbiotic Web</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <blockquote class="quote">
+                "The future will not be shaped by what our machines become, but by what we choose to become alongside them."
+            </blockquote>
+            <p class="quote-attribution">— The Sentientification Series</p>
+        </section>
+
+        <footer>
+            <p>The Myceloom Visualization — A map of the <a href="https://unearth.im">unearth.im</a> foundry</p>
+            <p style="margin-top: 0.5rem; font-size: 0.75rem;">Archive & Anvil • Story, Grounded • Own Your Ground</p>
+        </footer>
+    </div>
+</body>
+</html>
