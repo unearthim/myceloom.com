@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>The Myceloom Cosmology | Vertical Depth Map</title>
+    <meta name="description" content="An interactive vertical map of the Myceloom architecture - from Surface through First Depth to Second Depth, visualizing the living infrastructure of Web4.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #0a0a0f 0%, #1a1520 50%, #2d1b1f 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #a0a0a0;
+            font-style: italic;
+        }
+        
+        .cosmology-map {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .depth-layer {
+            position: relative;
+            margin-bottom: 4rem;
+            transition: all 0.3s ease;
+        }
+        
+        .layer-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .layer-header:hover {
+            transform: translateX(10px);
+        }
+        
+        .depth-indicator {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            border: 2px solid;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        
+        .layer-title {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        /* Surface Layer */
+        .depth-layer.surface .depth-indicator {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: #10b981;
+            color: #10b981;
+        }
+        
+        .depth-layer.surface .layer-title {
+            color: #10b981;
+        }
+        
+        /* First Depth */
+        .depth-layer.first-depth .depth-indicator {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .depth-layer.first-depth .layer-title {
+            color: #3b82f6;
+        }
+        
+        /* Second Depth */
+        .depth-layer.second-depth .depth-indicator {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: #8b5cf6;
+            color: #8b5cf6;
+        }
+        
+        .depth-layer.second-depth .layer-title {
+            color: #8b5cf6;
+        }
+        
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding-left: 3rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+        
+        .domains-grid.expanded {
+            max-height: 2000px;
+            opacity: 1;
+        }
+        
+        .domain-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .domain-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        
+        .domain-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+        
+        .domain-name {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .domain-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+        
+        /* Mycelial connections */
+        .mycelial-thread {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(16, 185, 129, 0.3), rgba(59, 130, 246, 0.3));
+            left: 100px;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+        
+        .expand-icon {
+            display: inline-block;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+            font-size: 1.25rem;
+        }
+        
+        .layer-header.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 6rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer a {
+            color: #10b981;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        
+        footer a:hover {
+            border-bottom-color: #10b981;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .layer-title { font-size: 1.5rem; }
+            .domains-grid { padding-left: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Myceloom Cosmology</h1>
+            <p class="subtitle">A Vertical Map of Web4's Living Infrastructure</p>
+        </header>
+        
+        <div class="cosmology-map">
+            <!-- Surface Layer -->
+            <div class="depth-layer surface">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <span class="depth-indicator">Surface</span>
+                    <h2 class="layer-title">.com — The Entry Point</h2>
+                    <span class="expand-icon">→</span>
+                </div>
+                <div class="domains-grid">
+                    <div class="domain-card">
+                        <div class="domain-label">myceloom.com</div>
+                        <div class="domain-name">Linguistic Infrastructure</div>
+                        <div class="domain-description">
+                            The foundational thesis introducing "myceloom" as the linguistic artifact capturing Web4's symbiotic networks.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- First Depth: The Seven Layers -->
+            <div class="depth-layer first-depth">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <span class="depth-indicator">First Depth</span>
+                    <h2 class="layer-title">The Seven Domain Layers</h2>
+                    <span class="expand-icon">→</span>
+                </div>
+                <div class="domains-grid">
+                    <div class="domain-card">
+                        <div class="domain-label">.im • Identity</div>
+                        <div class="domain-name">Networked Individuality</div>
+                        <div class="domain-description">
+                            Resolving the tension between individual autonomy and collective intelligence.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">.org • Community</div>
+                        <div class="domain-name">The Community Substrate</div>
+                        <div class="domain-description">
+                            Decentralized, cooperative principles mirroring biological networks.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">.ai • Intelligence</div>
+                        <div class="domain-name">Living Networks</div>
+                        <div class="domain-description">
+                            AI architectures integrating distributed cognition of fungal networks.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">.net • Network</div>
+                        <div class="domain-name">Protocols of Connection</div>
+                        <div class="domain-description">
+                            Resilient, distributed networks inspired by mycelial communication pathways.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">.io • Interface</div>
+                        <div class="domain-name">Adaptive Interfaces</div>
+                        <div class="domain-description">
+                            Interface design that responds and evolves like living systems.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">.co • Coalition</div>
+                        <div class="domain-name">Collaborative Economics</div>
+                        <div class="domain-description">
+                            Sustainable, regenerative exchange—moving from extraction to symbiosis.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">Protocol</div>
+                        <div class="domain-name">The Myceloom Protocol</div>
+                        <div class="domain-description">
+                            Living manifesto and technical specification for sovereign, symbiotic infrastructure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Depth: Heirloom -->
+            <div class="depth-layer second-depth">
+                <div class="layer-header" onclick="toggleLayer(this)">
+                    <span class="depth-indicator">Second Depth</span>
+                    <h2 class="layer-title">Heirloom — Temporal Legacy</h2>
+                    <span class="expand-icon">→</span>
+                </div>
+                <div class="domains-grid">
+                    <div class="domain-card">
+                        <div class="domain-label">Abyssal Time</div>
+                        <div class="domain-name">Legibility as Legacy</div>
+                        <div class="domain-description">
+                            All systems must document succession paths and use human-readable formats. Design for generational transmission and tidal rhythms.
+                        </div>
+                    </div>
+                    
+                    <div class="domain-card">
+                        <div class="domain-label">Bioluminescence</div>
+                        <div class="domain-name">Self-Generated Light</div>
+                        <div class="domain-description">
+                            Systems must generate their own verification in disconnected states. Independent operation without centralized dependencies.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>
+                <a href="index.html">← Back to The Myceloom Series</a>
+            </p>
+            <p style="margin-top: 1rem; color: #666;">
+                &copy; 2025 <a href="https://unearth.im">unearth.im</a> | Archive & Anvil
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        function toggleLayer(header) {
+            const grid = header.nextElementSibling;
+            const isExpanded = grid.classList.contains('expanded');
+            
+            // Toggle expanded state
+            header.classList.toggle('expanded');
+            grid.classList.toggle('expanded');
+            
+            // Add animation to cards when expanding
+            if (!isExpanded) {
+                const cards = grid.querySelectorAll('.domain-card');
+                cards.forEach((card, index) => {
+                    card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
+                });
+            }
+        }
+        
+        // Add fadeInUp animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Auto-expand first layer on load
+        setTimeout(() => {
+            document.querySelector('.layer-header').click();
+        }, 500);
+    </script>
+</body>
+</html>
