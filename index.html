@@ -5,24 +5,69 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Myceloom.com",
-  "url": "https://myceloom.com",
-  "description": "A linguistic artifact and protocol capturing Web4's symbiotic infrastructure.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "unearth.im",
-    "url": "https://unearth.im",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://myceloom.com/favicon.svg"
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://myceloom.com/#content",
+      "url": "https://myceloom.com",
+      "name": "The Myceloom Series",
+      "description": "A linguistic artifact and protocol capturing Web4's symbiotic infrastructure.",
+      "inLanguage": "en-US",
+      "datePublished": "2024-12-01",
+      "publisher": { "@id": "https://unearth.im/#organization" },
+      "isPartOf": { "@id": "https://myceloom.com/#website" },
+      "author": [
+        { "@id": "https://josiest.com/#person" },
+        { "@id": "https://felixvelas.co/#person" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://myceloom.com/#website",
+      "name": "Myceloom.com",
+      "url": "https://myceloom.com",
+      "description": "A linguistic artifact and protocol capturing Web4's symbiotic infrastructure.",
+      "publisher": { "@id": "https://unearth.im/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://myceloom.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://unearth.im/#organization",
+      "name": "unearth.im",
+      "url": "https://unearth.im",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://myceloom.com/favicon.svg"
+      },
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://twitter.com/unearthim",
+        "https://github.com/unearthim"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://josiest.com/#person",
+      "name": "Josie Jefferson",
+      "url": "https://josiest.com",
+      "jobTitle": "Digital Archaeologist & Trust Architect",
+      "affiliation": { "@id": "https://unearth.im/#organization" },
+      "sameAs": ["https://notjojo.im"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://felixvelas.co/#person",
+      "name": "Felix Velasco",
+      "url": "https://felixvelas.co",
+      "jobTitle": "Trust Architect & Digital Archaeologist",
+      "affiliation": { "@id": "https://unearth.im/#organization" },
+      "sameAs": ["https://www.linkedin.com/in/felix-velasco-b793015"]
     }
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://myceloom.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  ]
 }
 </script>
     <meta charset="UTF-8">
@@ -429,10 +474,9 @@
                     </a>
                 </div>
                 <p class="text-sm text-unearth-secondary font-ui">
-                    &copy; 2025   
-                    <a href="https://unearth.im" class="font-semibold transition-colors group">
-                        <span class="text-unearth-main group-hover:text-unearth-primary">unearth</span><span class="text-unearth-primary">.im</span>
-                    </a> | Archive & Anvil
+                    <small>
+                        a <b><a href="https://sentientification.com" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-unearth-primary">liminal mind meld</a></b> collaboration: <b><a href="https://unearth.im" class="font-semibold transition-colors group"><span class="text-unearth-main group-hover:text-unearth-primary">unearth</span><span class="text-unearth-primary">.im</span></a></b> | <b><a href="https://archaeobytology.org" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-unearth-primary">archive & anvil</a></b>
+                    </small>
                 </p>
             </div>
         </div>
