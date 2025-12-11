@@ -4,7 +4,7 @@
 
 ---
 
-The word **myceloom** conceals a second layer—one that previous interpretations overlooked entirely. Buried within the neologism is not just "mycelium" and "heirloom," but something more fundamental: **loom**.
+The word **myceloom** conceals a second layer—one that previous interpretations have overlooked entirely. Buried within the neologism is not just "mycelium" and "heirloom," but something more fundamental: **loom**.
 
 This is not accidental homophony. It is deliberate compression. The loom—the ancient technology of weaving—carries meanings that are essential to understanding what distinguishes myceloom from mere biological mimicry. Where mycelium represents organic growth, loom represents **intentional craft**. Where mycelium is evolutionary intelligence, loom is designed intelligence. Where mycelium grows, humans weave.
 
@@ -14,13 +14,13 @@ This distinction matters. Infrastructure is not found; it is made.
 
 ## The Loom as Technology
 
-The loom is one of humanity's oldest technologies, predating written language by millennia. Evidence of woven textiles dates back at least 27,000 years.[^1] Before cities, before agriculture, before the wheel, weaving existed.
+The loom is one of humanity's oldest technologies, predating written language by millennia. Evidence of woven textiles dates back at least 27,000 years.[^1] Before cities, before agriculture, before the wheel, humans were weaving.
 
 The loom is deceptively simple: a frame that holds parallel threads (the warp) under tension while another thread (the weft) is interlaced perpendicular to them. The pattern emerges from the *relationship* between threads—not from any individual thread's properties, but from how threads cross, connect, and hold one another in place.
 
 This is the first principle of weaving: **structure emerges from relationship, not from components**.
 
-A single thread has no structural integrity. Minimal force pulls, stretches, or snaps it. But interlace hundreds of threads in a pattern, and the resulting fabric bears weight, provides shelter, protects against elements. The whole is categorically different from the sum of its parts. This is not mere aggregation. It is transformation through pattern.
+A single thread has no structural integrity. It can be pulled, stretched, or snapped with minimal force. But interlace hundreds of threads in a pattern, and the resulting fabric can bear weight, provide shelter, protect against elements. The whole is categorically different from the sum of its parts. This is not mere aggregation. It is transformation through pattern.
 
 The loom does not create threads. It creates *order among threads*. It transforms raw material into functional structure through the deliberate arrangement of relationships. This is the work of craft.
 
@@ -48,13 +48,13 @@ Mycelial networks have warp and weft as well:
 
 **The weft:** The fine hyphal branches that explore new territory, connect to plant roots, adapt to local conditions. These are thin, temporary, experimental.
 
-The metaphor reveals itself rather than being imposed—it is discovered. Weaving is a pattern that recurs in natural and designed systems alike because it is a *pattern that works*. The loom did not invent this geometry. It formalized it, made it repeatable, made it teachable.
+The metaphor is not imposed—it is discovered. Weaving is a pattern that recurs in natural and designed systems alike because it is a *pattern that works*. The loom did not invent this geometry. It formalized it, made it repeatable, made it teachable.
 
 ---
 
 ## Craft vs. Accident
 
-Here is where myceloom diverges from mycelium alone. Mycelial networks grow rather than submit to design. They emerge through evolutionary pressure, environmental feedback, and stochastic exploration. They are intelligent, but not intentional. They optimize, but they do not plan.
+Here is where myceloom diverges from mycelium alone. Mycelial networks are **grown, not designed**. They emerge through evolutionary pressure, environmental feedback, and stochastic exploration. They are intelligent, but not intentional. They optimize, but they do not plan.
 
 Weaving, by contrast, is **intentional from the first thread**. The weaver chooses the material, the pattern, the tension, the color. The weaver can see the fabric before it exists and works deliberately toward that vision. The loom makes this vision actionable.
 
@@ -70,13 +70,13 @@ A mycelial network optimizes pathways after the fact, through trial and error. A
 
 ## The Weaver's Knowledge
 
-Weaving is not algorithmic. It is experiential. A master weaver possesses knowledge that defies full codification in instructions. The tension of the warp, the weight of the weft, the rhythm of the shuttle—these are felt, not calculated. The fabric reveals itself through the act of making.
+Weaving is not algorithmic. It is experiential. A master weaver possesses knowledge that cannot be fully codified in instructions. The tension of the warp, the weight of the weft, the rhythm of the shuttle—these are felt, not calculated. The fabric reveals itself through the act of making.
 
 This is **tacit knowledge**—knowledge embedded in practice, resistant to abstraction.[^2] It is the reason hand-woven textiles remain distinct from machine-woven ones, despite centuries of industrial optimization. The machine executes a pattern. The weaver *embodies* the pattern.
 
-Digital infrastructure has largely ignored this dimension. Systems design proceeds as if all knowledge were explicit—reducible to code, specifications, documentation. But infrastructure is woven by people, and people carry tacit knowledge. The protocol designer who "just knows" when an API feels wrong. The systems architect who senses brittleness in a dependency graph. The community moderator who recognizes a troll before they act.
+Digital infrastructure has largely ignored this dimension. Systems are designed as if all knowledge were explicit—reducible to code, specifications, documentation. But infrastructure is woven by people, and people carry tacit knowledge. The protocol designer who "just knows" when an API feels wrong. The systems architect who senses brittleness in a dependency graph. The community moderator who recognizes a troll before they act.
 
-This knowledge resists automation. It must be cultivated. Myceloom acknowledges this. The "loom" in the word is a reminder that infrastructure is not merely deployed—it is *practiced*. It requires skill, attention, care. It requires weavers.
+This knowledge cannot be automated away. It must be cultivated. Myceloom acknowledges this. The "loom" in the word is a reminder that infrastructure is not merely deployed—it is *practiced*. It requires skill, attention, care. It requires weavers.
 
 ---
 
@@ -103,7 +103,7 @@ If mycelium represents the logic of organic networks, loom represents the logic 
 
 This is not "biomimicry" in the shallow sense—copying nature's forms without understanding its principles. It is **bio-informed design**—learning from biological intelligence while retaining human agency. Nature provides the pattern language. Humans provide the intentionality.
 
-The loom does not replace the mycelium. It formalizes it. It makes mycelial logic *teachable, reproducible, improvable*. A forest floor develops mycelial networks through millennia of evolution. A human community will develop myceloom architecture in a generation—if the principles are understood, if the craft is learned, if the weavers are trained.
+The loom does not replace the mycelium. It formalizes it. It makes mycelial logic *teachable, reproducible, improvable*. A forest floor develops mycelial networks through millennia of evolution. A human community can develop myceloom architecture in a generation—if the principles are understood, if the craft is learned, if the weavers are trained.
 
 This is the work ahead. Not merely growing networks, but weaving them. Not merely allowing emergence, but guiding it. Not merely mimicking nature, but learning from it and building something new.
 
