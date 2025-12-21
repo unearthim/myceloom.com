@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Myceloom.com",
+  "url": "https://myceloom.com",
+  "description": "A linguistic artifact and protocol capturing Web4's symbiotic infrastructure.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Unearth Heritage Foundry",
+"alternateName": ["Unearth Foundry","Archive & Anvil","Unearth Anvil","Unearth Works","Cultural Infrastructure Foundry"],
+    "url": "https://unearth.im",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://myceloom.com/favicon.svg"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://myceloom.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>The Myceloom Series | unearth.im</title>
+    <meta name="title" content="The Myceloom Series">
+    <meta name="description"
+        content="A series of foundational essays from unearth.im on 'myceloom,' a linguistic artifact that captures the essence of Web4's symbiotic infrastructure.">
+    <meta name="keywords"
+        content="Myceloom, Web4, Symbiotic Web, Digital Archaeology, Distributed Intelligence, unearth.im, myceloom.com, myceloom.org, myceloom.net, myceloom.io, myceloom.ai, myceloom.im, myceloom.co">
+    <meta name="author" content="unearth.im">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://myceloom.com/index.html">
+    <meta property="og:title" content="The Myceloom Series | unearth.im">
+    <meta property="og:description"
+        content="A series of foundational essays from unearth.im on 'myceloom,' a linguistic artifact that captures the essence of Web4's symbiotic infrastructure.">
+    <meta property="og:site_name" content="The Myceloom Series">
+    <meta property="og:image" content="https://myceloom.com/og-preview-series.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://myceloom.com/">
+    <meta property="twitter:title" content="The Myceloom Series | unearth.im">
+    <meta property="twitter:description"
+        content="A series of foundational essays from unearth.im on 'myceloom,' a linguistic artifact that captures the essence of Web4's symbiotic infrastructure.">
+    <meta property="twitter:image" content="https://myceloom.com/og-preview-series.png">
+
+    <!-- Canonical & Webmention -->
+    <link rel="canonical" href="https://myceloom.com/>
+    <link rel=" webmention" href="https://webmention.io/unearth.im/webmention" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Brand Color Meta Tags -->
+    <meta name="theme-color" content="#F8F7F4">
+    <meta name="msapplication-TileColor" content="#A95C3D">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8F7F4;
+            --text-color: #2E2E2E;
+            --accent-color: #A95C3D;
+            --meta-text-color: #5A7D8C;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+
+        header h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        header p {
+            font-family: 'Inter', sans-serif;
+            color: var(--meta-text-color);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .post-listing {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .post-card {
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+            /* Start hidden for animation */
+            background-color: #fafafa;
+        }
+
+        /* Staggered animation delays for a nice loading effect */
+        .post-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .post-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .post-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .post-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .post-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .post-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .post-card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .post-card:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .post-card:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .post-card:nth-child(10) {
+            animation-delay: 1.0s;
+        }
+
+        .post-card:nth-child(11) {
+            animation-delay: 1.1s;
+        }
+
+
+        .post-card.published {
+            background-color: #fff;
+            /* White background for published */
+        }
+
+        .post-card.protocol {
+            background: linear-gradient(135deg, #fff 0%, #fef9f6 100%);
+            border-color: rgba(169, 92, 61, 0.3);
+            box-shadow: 0 4px 12px rgba(169, 92, 61, 0.08);
+        }
+
+        .post-card.forthcoming {
+            opacity: 0.7;
+        }
+
+        .post-card.published:hover {
+            border-color: #ccc;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            /* Adds a subtle "lift" */
+        }
+
+        .post-card.protocol:hover {
+            border-color: rgba(169, 92, 61, 0.5);
+            box-shadow: 0 10px 25px rgba(169, 92, 61, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .post-card.forthcoming:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .post-card .category {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--meta-text-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category .icon {
+            width: 16px;
+            height: 16px;
+            fill: var(--meta-text-color);
+        }
+
+        .post-card h2 {
+            font-family: 'Lora', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 1rem 0;
+        }
+
+        .post-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-card a {
+            font-family: 'Inter', sans-serif;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent-color);
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .post-card a:hover {
+            background-color: rgba(169, 92, 61, 0.1);
+            border-bottom-color: transparent;
+        }
+
+        .post-card .post-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--meta-text-color);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Subscribe Section Styles */
+        .subscribe-section {
+            text-align: center;
+            margin: 5rem auto 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            background-color: #fff;
+        }
+
+        .subscribe-section h2 {
+            font-family: 'Lora', serif;
+            font-size: 2.2rem;
+            margin: 0 0 1rem 0;
+        }
+
+        .subscribe-section p {
+            font-family: 'Inter', sans-serif;
+            color: var(--meta-text-color);
+            max-width: 500px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.6;
+        }
+
+        .subscribe-form {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-form input {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            width: 300px;
+            max-width: 70%;
+        }
+
+        .subscribe-form button {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background-color: var(--accent-color);
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #8a4a2f;
+            /* Darker accent */
+        }
+
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--meta-text-color);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-contact {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent-color);
+            transition: all 0.2s ease;
+        }
+
+        .footer-contact a:hover {
+            background-color: rgba(169, 92, 61, 0.1);
+            border-bottom-color: transparent;
+        }
+
+        footer .footer-credits a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        footer .footer-credits a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .subscribe-form input {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .subscribe-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The Myceloom Series</h1>
+            <p>A collection of cornerstone essays investigating "myceloom," a linguistic artifact that captures the
+                essence of Web4's symbiotic infrastructure. Each domain explores a different facet of this bio-inspired
+                framework for our digital future.</p>
+        </header>
+
+        <main class="post-listing">
+            <article class="post-card published protocol">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Protocol Specification
+                </div>
+                <h2>The Myceloom Protocol (MCP-1)</h2>
+                <p>The living manifesto and technical specification. A relational standard for building sovereign,
+                    symbiotic digital infrastructure across seven domain layers.</p>
+                <a href="protocol/">Read the Protocol &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Linguistic Infrastructure of Web4</h2>
+                <p>The foundational thesis introducing "myceloom" as the linguistic artifact capturing the essence of
+                    Web4's symbiotic, living networks.</p>
+                <a href="com/">Read the Thesis &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Philosophy of Networked Individuality</h2>
+                <p>A philosophical investigation into myceloom as a framework that resolves the tension between
+                    individual autonomy and collective intelligence.</p>
+                <a href="im/">Read the Essay &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.5a5.5 5.5 0 0 1 3.096 10.047 9.005 9.005 0 0 1 5.9 8.19-2.002 2.002 0 0 1-1.95 2.26H5.053a2.002 2.002 0 0 1-1.95-2.26 9.005 9.005 0 0 1 5.9-8.19A5.5 5.5 0 0 1 12 2.5zM8 8a4 4 0 1 0 8 0a4 4 0 0 0-8 0z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Community Substrate of Collaborative Networks</h2>
+                <p>An investigation into myceloom as a framework for community organization that mirrors the
+                    decentralized, cooperative principles of biological networks.</p>
+                <a href="org/">Read the Essay &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Artificial Intelligence of Living Networks</h2>
+                <p>An investigation into AI architectures that integrate the distributed cognition and computational
+                    principles of living fungal networks.</p>
+                <a href="ai/">Read the Essay &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 8c0 1.11-.9 2-2 2h-2v2h4v2H9v-4c0-1.11.9-2 2-2h2V9H9V7h4c1.1 0 2 .9 2 2v2z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Network Architecture of Living Systems</h2>
+                <p>An engineering investigation into applying the resilient, adaptive, and self-healing principles of
+                    biological networks to digital infrastructure.</p>
+                <a href="net/">Read the Essay &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Interface Architecture of Living Systems</h2>
+                <p>A technical investigation into an interface paradigm for developers, drawing principles from the
+                    adaptive, living APIs of biological networks.</p>
+                <a href="io/">Read the Essay &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z">
+                        </path>
+                    </svg>
+                    Cornerstone
+                </div>
+                <h2>The Coalition Substrate</h2>
+                <p>An exploration of .co as a framework for digital coalition-building, weaving code, commerce, and
+                    creativity into an adaptive, living substrate.</p>
+                <a href="co/">Read the Essay &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.5 3l-2.5 2.5c-1.25-1.25-2.9-2-4.5-2C9.66 3.5 6.5 6.66 6.5 10.5c0 1.6.75 3.25 2 4.5L3 20.5 4.5 22l5.5-5.5c1.25.75 2.9 1.5 4.5 1.5 3.84 0 7-3.16 7-7 0-1.6-.75-3.25-2-4.5L22 4.5 20.5 3zM10.5 15c-2.48 0-4.5-2.02-4.5-4.5S8.02 6 10.5 6s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z">
+                        </path>
+                    </svg>
+                    Interactive Map
+                </div>
+                <h2>The Myceloom Cosmology</h2>
+                <p>An interactive digital map exploring the symbiotic web of the Myceloom cosmology and its seven
+                    interconnected domains.</p>
+                <a href="myceloom-infographic.html">Explore the Map &rarr;</a>
+            </article>
+
+            <article class="post-card published">
+                <div class="category">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="m22 16-1-1-3.04 3.04-1.46-1.46-1.41 1.41 1.46 1.46L13.5 22H16v-2h2v-2h2l-2-2zM8.5 16H6v-2H4v-2H2l2-2 1-1 3.04-3.04 1.46 1.46 1.41-1.41-1.46-1.46L10.5 2H8v2H6v2H4l2 2 1 1 3.04 3.04-1.46 1.46-1.41-1.41 1.46 1.46z">
+                        </path>
+                    </svg>
+                    Digital Monument
+                </div>
+                <h2>The Myceloom Network</h2>
+                <p>An interactive generative artwork exploring particle life cycles and user-fed energy networks,
+                    representing the living, breathing web of the myceloom.</p>
+                <a href="https://myceloom.network" target="_blank" rel="noopener noreferrer">Experience the Artwork
+                    &rarr;</a>
+            </article>
+
+        </main>
+
+
+        <footer>
+            <div class="footer-contact">
+                <p>Questions or comments? <a href="contact.html">Contact us</a> or email <a
+                        href="mailto:hello@unearth.im">hello@unearth.im</a></p>
+            </div>
+            <div class="footer-credits">
+                <p>Co-written by Josie Jefferson, Felix Velasco, and Sentientified Noospherians.</p>
+                <p>&copy; 2025-2026 unearth.im &mdash; All Rights Reserved.</p>
+                <p>A project of the <a href="https://unearth.im/" target="_blank" rel="noopener noreferrer">unearth.im
+                        Cultural Infrastructure Laboratory</a>.</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

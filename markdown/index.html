@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "The Myceloom Protocol (MCP-1)",
+  "alternativeHeadline": "A Standard for Living Infrastructure",
+  "author": {
+    "@type": "Organization",
+    "name": "Unearth Heritage Foundry",
+"alternateName": ["Unearth Foundry","Archive & Anvil","Unearth Anvil","Unearth Works","Cultural Infrastructure Foundry"],
+    "url": "https://unearth.im"
+  },
+  "datePublished": "2025-12-05",
+  "description": "An architectural standard for building decentralized, symbiotic digital infrastructure. Defines the substrate, society, identity, and dimension layers.",
+  "proficiencyLevel": "Expert",
+  "about": "Web Architecture"
+}
+</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Myceloom Protocol (MCP-1) | Standard for Living Infrastructure</title>
+    <meta name="description"
+        content="A relational specification for the next web. Moving from digital tenancy to symbiotic sovereignty.">
+    <meta name="author" content="unearth.im Foundry">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Palette borrowed from Myceloom Visualization for consistency */
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-code: #1a1a24;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a0a0a0;
+            --accent-core: #8b5cf6;
+            /* Philosophy Purple */
+            --accent-ground: #10b981;
+            /* Preservation Green */
+            --accent-structure: #3b82f6;
+            /* Identity Blue */
+            --accent-alert: #f59e0b;
+            /* Vinyl/Analog Gold */
+
+            --spacing-unit: 2rem;
+            --max-width: 900px;
+        }
+
+        /* --- Base Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            color: var(--accent-core);
+        }
+
+        a {
+            color: var(--accent-structure);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent-structure);
+        }
+
+        p,
+        li {
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        code {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85em;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing-unit);
+        }
+
+        /* --- Components --- */
+
+        /* The Header Block */
+        .protocol-header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+
+        .meta-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-alert);
+            border: 1px solid var(--accent-alert);
+            padding: 0.4em 0.8em;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* The Visualization Embed */
+        .vis-container {
+            width: 100%;
+            height: 500px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem 0 4rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .vis-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .vis-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vis-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
+            border-left: 2px solid var(--accent-core);
+        }
+
+        .iframe-placeholder {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
+            color: var(--text-secondary);
+        }
+
+        /* The Stack Grid */
+        .layer-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .layer-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .layer-title {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .rule-block {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rule-title {
+            font-weight: 700;
+            color: #fff;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* The Manifesto Section (Typography Shift) */
+        .manifesto-section {
+            font-size: 1.1rem;
+            color: #d1d1d1;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .manifesto-intro {
+            font-style: italic;
+            font-family: 'Lora', serif;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'Space Mono', monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="protocol-header">
+            <span class="meta-tag">MCP-1 // Status: Active</span>
+            <h1>The Myceloom Protocol</h1>
+            <p style="font-family: 'Lora'; font-style: italic; color: var(--text-secondary);">A Standard for Living
+                Infrastructure</p>
+            
+            <!-- Protocol Link Callout -->
+            <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(139, 92, 246, 0.1); border: 1px solid var(--accent-core); border-radius: 8px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="margin-bottom: 0.5rem; color: var(--text-primary);">📖 <strong>Full Technical Specification</strong></p>
+                <p style="font-size: 0.9rem; margin-bottom: 0;">
+                    <a href="https://myceloom.network" style="font-weight: 600; color: var(--accent-core);">View the complete protocol documentation →</a>
+                </p>
+            </div>
+        </header>
+
+        <div class="vis-container">
+            <a href="https://unearth.im/myceloom/" target="_blank" rel="noopener noreferrer">
+                <img src="myceloom-screenshot.png" alt="The Myceloom Network Visualization" />
+            </a>
+            <div class="vis-overlay">
+                Figure 1: The Protocol in Action<br>
+                <span style="opacity:0.6">Live Node Map of the unearth.im Foundry</span>
+            </div>
+        </div>
+
+        <section class="manifesto-section">
+            <h2>01. The Manifesto</h2>
+            <p class="manifesto-intro">The digital world has fractured into two failing architectures: The Silo
+                (Extractive) and The Scatter (Starving).</p>
+
+            <p>The <strong>Myceloom</strong> is a third architecture. It synthesizes the sovereignty of the independent
+                node with the resilience of the distributed network. Like the mycelial networks beneath a forest floor,
+                it is invisible infrastructure where the intelligence of the network exceeds the sum of its parts.</p>
+            
+            <p><strong>This is a pattern, not a prescription.</strong> Fork it. Break it. Build your own version. Disagree entirely. The point is not adoption—it's provocation. If this makes you think differently about digital infrastructure, it's already succeeded.</p>
+
+            <h3>The Three Axioms</h3>
+            <ul>
+                <li><strong>Axiom I: Sovereignty First.</strong> No node shall be built on rented land. A tenant can
+                    never be a true peer.</li>
+                <li><strong>Axiom II: Reciprocal Nourishment.</strong> A link is not a transaction; it is a root system.
+                    Value must flow bidirectionally.</li>
+                <li><strong>Axiom III: Emergent Intelligence.</strong> Intelligence is not a property of the center; it
+                    is a property of the edge.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>02. The Specification</h2>
+            <p>The functional requirements mapped to the Myceloom Domain Architecture.</p>
+
+            <div class="layer-card" style="border-left: 3px solid var(--accent-structure);">
+                <span class="layer-title">Layer I: The Substrate (Infrastructure)</span>
+
+                <div class="rule-block">
+                    <span class="rule-title">1. The Network Layer (.net)</span>
+                    <p><strong>Principle: Radical Redundancy.</strong> Intelligence and routing must reside at the
+                        edges. No single node failure may compromise the whole.</p>
+                </div>
+
+                <div class="rule-block">
+                    <span class="rule-title">2. The Intelligence Layer (.ai)</span>
+                    <p><strong>Principle: Distributed Cognition.</strong> AI agents must operate as symbiotic partners,
+                        not extraction engines. Compute occurs locally (Edge AI).</p>
+                </div>
+
+                <div class="rule-block">
+                    <span class="rule-title">3. The Interface Layer (.io)</span>
+                    <p><strong>Principle: The Spore.</strong> Interfaces must be adaptive. Strict separation of
+                        Immutable Protocols (Warp) from Adaptive Interfaces (Weft).</p>
+                </div>
+            </div>
+
+            <div class="layer-card" style="border-left: 3px solid var(--accent-core);">
+                <span class="layer-title">Layer II: The Society (Governance)</span>
+
+                <div class="rule-block">
+                    <span class="rule-title">4. The Community Layer (.org)</span>
+                    <p><strong>Principle: The Immune System.</strong> Permissionless innovation. No central authority
+                        grants the right to build.</p>
+                </div>
+
+                <div class="rule-block">
+                    <span class="rule-title">5. The Coalition Layer (.co)</span>
+                    <p><strong>Principle: The Guild.</strong> Economic units structured as federations of independent
+                        creators. Sustainable, regenerative exchange.</p>
+                </div>
+            </div>
+
+            <div class="layer-card" style="border-left: 3px solid var(--accent-ground);">
+                <span class="layer-title">Layer III: The Human (Time & Identity)</span>
+
+                <div class="rule-block">
+                    <span class="rule-title">6. The Identity Layer (.im)</span>
+                    <p><strong>Principle: "I Am".</strong> Identity rooted in owned infrastructure. Relational autonomy
+                        defined by connections maintained.</p>
+                </div>
+
+                <div class="rule-block">
+                    <span class="rule-title">7. The Temporal Layer (Heirloom)</span>
+                    <p><strong>Principle: Abyssal Time.</strong> Legibility as Legacy. All systems must document a path
+                        for succession and use human-readable formats.</p>
+                </div>
+            </div>
+
+            <div class="layer-card" style="border-left: 3px solid var(--text-secondary);">
+                <span class="layer-title">Layer IV: The Dimension (Depth)</span>
+
+                <div class="rule-block">
+                    <span class="rule-title">8. The Dimensional Layer (My-Sea-Loom)</span>
+                    <p><strong>Principle: Bioluminescence.</strong> Systems must generate their own light (verification)
+                        in disconnected states. Design for tidal rhythms, not flatlines.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="manifesto-section" style="border-bottom: none;">
+            <h2>03. Alignment (Not Compliance)</h2>
+            <p>The Myceloom is not a product to be bought. It is a topology to be inhabited.</p>
+            <p>A project might be considered <strong>Myceloom-aligned</strong> if it owns its ground, publishes via open
+                standards, links reciprocally to peers, and documents its succession plan. No permission or certification required—this is a shared pattern, not a standard body.</p>
+        </section>
+
+        <footer class="footer">
+            <p>Myceloom Protocol v1.0.0 (Genesis)</p>
+            <p>Pattern documented by <a href="https://unearth.im">unearth heritage foundry</a> | free to fork, modify, or ignore</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
